@@ -52,6 +52,7 @@
                     <a href="index.php?task=IngresarDignidad">Ingresar</a>
                     <a href="#">Modificar</a>
                     <a href="#">Eliminar</a>
+                    <a href="index.php?task=ListarDignidad">Listar</a>
                 </div>
 
                 <!--4rd drop down menu -->                                                   

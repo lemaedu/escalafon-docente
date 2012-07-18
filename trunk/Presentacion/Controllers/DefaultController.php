@@ -54,6 +54,8 @@ class DefaultController {
                 break;
             case "IngresarDignidad":$this->ShowIngresarDignidad();
                 break;
+            case "ListarDignidad":$this->ShowListarDignidad();
+                break;
             default:$this->default1();
                 break;
         }
@@ -104,11 +106,7 @@ class DefaultController {
 //        } else
 //            require_once ("Presentacion/Vista/Default.php");
 //
-//    }
-    /*
-     * FUNCION PARA MOSTRAR LA PAGINA DE ADMINISTRACION DE EMPRESAS
-     */
-
+//    }   
     /*
      * LLAMAMOS A LA PAGINA LOGIN
      */
@@ -227,6 +225,13 @@ class DefaultController {
         require_once 'encabezado.php';
         require_once 'Presentacion/Vista/IngresarDignidad.php';
         //require_once 'piedepagina.php';
+    }
+    public function ShowListarDignidad() {        
+        //$actividades = $businessLogic->getListaActividades($_GET['cedula']);
+        $businessLogic = new BusinessLogic();
+        $lista = $businessLogic->getListarDignidad();
+        require_once 'encabezado.php';        
+        require_once ("Presentacion/Vista/ListarDignidad.php");
     }
 
 }
