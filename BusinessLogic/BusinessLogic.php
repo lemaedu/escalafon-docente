@@ -223,7 +223,22 @@ class BusinessLogic {
             $data = $dataAcces->listarDignidad();
             if ($data != NULL) {
                 foreach ($data as $col) {
-                    $datos[] = new Dignidad($col[1], $col[2],$col[3]);
+                    $datos[] = new Dignidad($col[1], $col[2], $col[3]);
+                }
+            }
+            return $datos;
+        } catch (Exception $ex) {
+            echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
+        }
+    }
+
+    public function getListarAscenso() {
+        try {
+            $dataAcces = new DataAccesComponents();
+            $data = $dataAcces->listarAscenso();
+            if ($data != NULL) {
+                foreach ($data as $col) {
+                    $datos[] = new Ascenso($col[1], $col[2]);
                 }
             }
             return $datos;

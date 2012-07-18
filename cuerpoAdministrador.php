@@ -60,6 +60,7 @@
                     <a href="index.php?task=IngresarAscenso">Ingresar</a>
                     <a href="#">Modificar</a>
                     <a href="#">Eliminar</a>
+                    <a href="index.php?task=ListarAscenso">Listar</a>
                 </div>
                 <!--5rd drop down menu -->                                                   
                 <div id="dropmenu5" class="dropmenudiv" style="width: 150px;">
