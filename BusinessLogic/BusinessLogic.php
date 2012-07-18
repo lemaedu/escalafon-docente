@@ -145,7 +145,7 @@ class BusinessLogic {
                             $sexo, $nacionalidad, $telefono, $categoria,
                             $direccion, $fingreso, $foto);
             $dat = new DataAccesComponents();
-            $num = $dat->actualizarDocentes($docente);
+            $num = $dat->modificarDocente($docente);
             return $num;
         } catch (Exception $ex) {
             echo "No se pudo pudieron Actualizar los datos Error" . $ex->getMessage();
@@ -369,6 +369,30 @@ class BusinessLogic {
             return $actividades;
         } catch (Exception $ex) {
             echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
+        }
+    }
+    
+    
+    /*     * ***********************************************************************
+     * ************************************************************************     
+     * <-----------------BLOQUE DE BUSCAR / INSERCIONES---------------->
+     * ************************************************************************
+     * ************************************************************************
+     */
+    /* Agregar Docente */
+        public function buscarDocente($op, $dato) {
+        try {
+            $dataAccess = new DataAccesComponents();
+            $docenteBusca = $dataAccess->buscarDocentes($op, $dato);
+            if ($docenteBusca != NULL) {
+                foreach ($docenteBusca as $col) {
+                    $docentesBuscados[] = new Docente($col[0], $col[1], $col[2], $col[3], $col[4], $col[5],
+                                    $col[6], $col[7], $col[8], $col[9], $col[10], $col[11]);
+                }
+            }
+            return $docentesBuscados;
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
         }
     }
 
