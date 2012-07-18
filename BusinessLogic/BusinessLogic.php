@@ -217,6 +217,21 @@ class BusinessLogic {
         }
     }
 
+    public function getListarDignidad() {
+        try {
+            $dataAcces = new DataAccesComponents();
+            $data = $dataAcces->listarDignidad();
+            if ($data != NULL) {
+                foreach ($data as $col) {
+                    $datos[] = new Dignidad($col[1], $col[2],$col[3]);
+                }
+            }
+            return $datos;
+        } catch (Exception $ex) {
+            echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
+        }
+    }
+
     public function editarFormacion($nivelEducacion, $codigoRefrendacion, $numPaginaRegistro, $puntos, $fechaIngreso, $descripcion) {
         try {
             $formacion = new Formacion($nivelEducacion, $codigoRefrendacion, $numPaginaRegistro, $puntos, $fechaIngreso, $descripcion);

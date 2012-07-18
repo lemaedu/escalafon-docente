@@ -5,7 +5,7 @@
         <title></title>
     </head>
     <body>
-        //<?php
+        <?php
         require_once ("Presentacion/Controllers/DefaultController.php");
 //pregunta para saber que esta seteado        
         //$task = new DefaultController($_GET["task"]);
