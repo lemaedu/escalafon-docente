@@ -25,9 +25,7 @@ class DefaultController {
             case "Actividades":$this->ShowActividades();
                 break;
             case "UpdateActividades":$this->ShowUpdateActividades();
-                break;
-            case "ListarActividades":$this->ShowListaActividades();
-                break;
+                break;            
             case "EditarActividades":$this->ShowEditarActividades();
                 break;
             case "LoginUsuario":$this->ShowLoginFormulario();
@@ -47,6 +45,8 @@ class DefaultController {
             case "ListarFormacion":$this->ShowListarFormacion();
                 break;
             case "IngresarActividad":$this->ShowIngresarActividad();
+                break;
+            case "ListarActividad":$this->ShowListarActividad();
                 break;
             case "IngresarAscenso":$this->ShowIngresarAscenso();
                 break;
@@ -81,11 +81,12 @@ class DefaultController {
         }
     }
 
-    public function ShowListaActividades() {
+    public function ShowListarActividad() {        
+        //$actividades = $businessLogic->getListaActividades($_GET['cedula']);
         $businessLogic = new BusinessLogic();
-        $actividades = $businessLogic->getListaActividades($_GET['cedula']);
-        require_once 'cabecera.php';
-        require_once ("Presentacion/Vista/ListaActividades.php");
+        $actividad = $businessLogic->getListarActividad();
+        require_once 'encabezado.php';        
+        require_once ("Presentacion/Vista/ListarActividad.php");
     }
 
     public function ShowEditarActividades() {

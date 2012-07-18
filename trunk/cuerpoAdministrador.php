@@ -37,7 +37,7 @@
                     <a href="index.php?task=IngresarActividad">Ingresar</a>
                     <a href="index.php?task=">Modificar</a>
                     <a href="index.php?task=">Eliminar</a>                            
-                    <a href="index.php?task=ListarActividades">Listar</a>
+                    <a href="index.php?task=ListarActividad">Listar</a>
                 </div>
 
                 <!--2nd drop down menu -->                                                
