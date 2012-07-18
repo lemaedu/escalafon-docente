@@ -207,6 +207,20 @@ class DataAccesComponents {
         }
     }
 
+    public function listarAscenso() {
+        try {
+            $link = conectarse();
+            $sql = "select * from ascenso";
+            $result = pg_exec($link, $sql);
+            while ($row = pg_fetch_array($result)) {
+                $tupla[] = $row;
+            }
+            return $tupla;
+        } catch (Exception $ex) {
+            echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
+        }
+    }
+
 }
 
 ?>

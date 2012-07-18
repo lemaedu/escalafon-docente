@@ -50,6 +50,10 @@ class DefaultController {
                 break;
             case "IngresarAscenso":$this->ShowIngresarAscenso();
                 break;
+            case "IngresarFormacion":$this->ShowIngresarFormacion();
+                break;
+            case "ListarAscenso":$this->ShowListarAscenso();
+                break;
             case "IngresarPublicacion":$this->ShowIngresarPublicacion();
                 break;
             case "IngresarDignidad":$this->ShowIngresarDignidad();
@@ -206,6 +210,13 @@ class DefaultController {
         require_once 'encabezado.php';
         require_once 'Presentacion/Vista/IngresarAscenso.php';
         //require_once 'piedepagina.php';
+    }
+    public function ShowListarAscenso() {        
+        //$actividades = $businessLogic->getListaActividades($_GET['cedula']);
+        $businessLogic = new BusinessLogic();
+        $lista = $businessLogic->getListarAscenso();
+        require_once 'encabezado.php';        
+        require_once ("Presentacion/Vista/ListarAscenso.php");
     }
 
     /*
