@@ -67,6 +67,7 @@
                     <a href="index.php?task=IngresarPublicacion">Ingresar</a>
                     <a href="#">Modificar</a>
                     <a href="#">Eliminar</a>
+                    <a href="index.php?task=ListarPublicacion">Listar</a>
                 </div>
                 <!--6rd drop down menu -->                                                   
                 <div id="dropmenu6" class="dropmenudiv" style="width: 150px;">

@@ -25,7 +25,7 @@ class DefaultController {
             case "Actividades":$this->ShowActividades();
                 break;
             case "UpdateActividades":$this->ShowUpdateActividades();
-                break;            
+                break;
             case "EditarActividades":$this->ShowEditarActividades();
                 break;
             case "LoginUsuario":$this->ShowLoginFormulario();
@@ -55,6 +55,8 @@ class DefaultController {
             case "ListarAscenso":$this->ShowListarAscenso();
                 break;
             case "IngresarPublicacion":$this->ShowIngresarPublicacion();
+                break;
+            case "ListarPublicacion":$this->ShowListarPublicacion();
                 break;
             case "IngresarDignidad":$this->ShowIngresarDignidad();
                 break;
@@ -87,11 +89,11 @@ class DefaultController {
         }
     }
 
-    public function ShowListarActividad() {        
+    public function ShowListarActividad() {
         //$actividades = $businessLogic->getListaActividades($_GET['cedula']);
         $businessLogic = new BusinessLogic();
         $actividad = $businessLogic->getListarActividad();
-        require_once 'encabezado.php';        
+        require_once 'encabezado.php';
         require_once ("Presentacion/Vista/ListarActividad.php");
     }
 
@@ -192,6 +194,14 @@ class DefaultController {
         //require_once 'piedepagina.php';
     }
 
+    public function ShowListarPublicacion() {
+        $businessLogic = new BusinessLogic();
+        $lista = $businessLogic->getListarPublicacion();
+        require_once 'encabezado.php';
+        require_once 'Presentacion/Vista/ListarPublicacion.php';
+        //require_once 'piedepagina.php';
+    }
+
     /*
      * LLAMAMOS A LA PAGINA Ingresar Actividad
      */
@@ -211,11 +221,12 @@ class DefaultController {
         require_once 'Presentacion/Vista/IngresarAscenso.php';
         //require_once 'piedepagina.php';
     }
-    public function ShowListarAscenso() {        
+
+    public function ShowListarAscenso() {
         //$actividades = $businessLogic->getListaActividades($_GET['cedula']);
         $businessLogic = new BusinessLogic();
         $lista = $businessLogic->getListarAscenso();
-        require_once 'encabezado.php';        
+        require_once 'encabezado.php';
         require_once ("Presentacion/Vista/ListarAscenso.php");
     }
 
@@ -228,6 +239,7 @@ class DefaultController {
         require_once 'Presentacion/Vista/IngresarPublicacion.php';
         //require_once 'piedepagina.php';
     }
+
     /*
      * LLAMAMOS A LA PAGINA Ingresar Dignidad
      */
@@ -237,11 +249,12 @@ class DefaultController {
         require_once 'Presentacion/Vista/IngresarDignidad.php';
         //require_once 'piedepagina.php';
     }
-    public function ShowListarDignidad() {        
+
+    public function ShowListarDignidad() {
         //$actividades = $businessLogic->getListaActividades($_GET['cedula']);
         $businessLogic = new BusinessLogic();
         $lista = $businessLogic->getListarDignidad();
-        require_once 'encabezado.php';        
+        require_once 'encabezado.php';
         require_once ("Presentacion/Vista/ListarDignidad.php");
     }
 

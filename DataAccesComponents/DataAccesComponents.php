@@ -220,6 +220,19 @@ class DataAccesComponents {
             echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
         }
     }
+    public function listarPublicacion() {
+        try {
+            $link = conectarse();
+            $sql = "select * from publicaciones";
+            $result = pg_exec($link, $sql);
+            while ($row = pg_fetch_array($result)) {
+                $tupla[] = $row;
+            }
+            return $tupla;
+        } catch (Exception $ex) {
+            echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
+        }
+    }
 
 }
 
