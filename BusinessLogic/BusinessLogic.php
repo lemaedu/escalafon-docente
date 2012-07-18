@@ -300,7 +300,20 @@ class BusinessLogic {
             echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
         }
     }
-
+ public function getListarCapacitacion() {     
+        try {
+            $dataAccess = new DataAccesComponents();
+            $data = $dataAccess->listarCapacitacion();
+            if ($data != NULL) {
+                foreach ($data as $col) {
+                    $datos[] = new Capacitacion($col[1], $col[2],$col[3],$col[4]);
+                }
+            }
+            return $datos;
+        } catch (Exception $ex) {
+            echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
+        }
+    }
     public function agregarPublicacionesDocente($cedulaDocente, $codigoPublicacion, $fecha, $descripcion) {
         try {
             $publicacionesDocente = new PublicacionesDocente($cedulaDocente, $codigoPublicacion, $fecha, $descripcion);
