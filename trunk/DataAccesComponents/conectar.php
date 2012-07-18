@@ -10,7 +10,7 @@
         function Conectarse()
         {
             $user = 'postgres';
-            $passwd = 'joselugb';
+            $passwd = '12345';
             $db = 'db_escalafon';
             $port = 5432;
             $host = 'localhost';

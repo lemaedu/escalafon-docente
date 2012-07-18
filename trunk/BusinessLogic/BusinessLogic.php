@@ -286,13 +286,13 @@ class BusinessLogic {
         }
     }
 
-    public function getListarPublicaciones() {
+    public function getListarPublicacion() {     
         try {
-            $dataAcces = new DataAccesComponents();
-            $data = $dataAcces->listarPublicaciones();
+            $dataAccess = new DataAccesComponents();
+            $data = $dataAccess->listarPublicacion();
             if ($data != NULL) {
                 foreach ($data as $col) {
-                    $datos[] = new Publicaciones($col[0], $col[1], $col[2], $col[3], $col[4], $col[6]);
+                    $datos[] = new Publicaciones($col[1], $col[2],$col[3],$col[4],$col[5],$col[6]);
                 }
             }
             return $datos;
