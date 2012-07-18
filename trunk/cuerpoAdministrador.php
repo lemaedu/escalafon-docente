@@ -43,7 +43,7 @@
                 <!--2nd drop down menu -->                                                
                 <div id="dropmenu2" class="dropmenudiv" style="width: 150px;">
                     <a href="index.php?task=IngresarDocente">Ingresar</a>
-                    <a href="index.php?task=ModificarDocente">Modificar</a>
+                    <a href="index.php?task=BuscarDocente">Buscar</a>
                     <a href="#">Eliminar</a>
                     <a href="index.php?task=ListarDocente">Listar</a>
                 </div>

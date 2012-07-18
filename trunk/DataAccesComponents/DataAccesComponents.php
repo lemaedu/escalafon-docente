@@ -260,6 +260,92 @@ class DataAccesComponents {
         }
     }
 
+    /*     * ******************************************************************
+     * ************************************************************************     
+     * <-----------------BLOQUE DE MODIFICAR /  ELIMINAR---------------->
+     * ************************************************************************
+     * ************************************************************************
+     */
+
+    public function modificarDocente(Docente $docente) {
+        try {
+            $cedula = $docente->get_cedula();
+            $nombre = $docente->get_nombres();
+            $apellidos = $docente->get_apellidos();
+            $fechaNac = $docente->get_fechanacimiento();
+            $sexo = $docente->get_sexo();
+            $nacionalidad = $docente->get_nacionalidad();
+            $telefono = $docente->get_telefono();
+            $categoria = $docente->get_categoriadocente();
+            $direccion = $docente->get_direccion();
+            $fingreso = $docente->get_fechaingreso();
+            $foto = $docente->get_foto();
+
+            $link = conectarse();
+
+            $sql = "SELECT sp_modificarDocente('$cedula','$nombre','$apellidos',
+                    '$fechaNac','$sexo','$nacionalidad','$telefono',
+                    '$categoria','$direccion','$fingreso','$foto')";
+            $num = pg_exec($link, $sql);
+            return $num;
+        } catch (Exception $ex) {
+            echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
+        }
+    }
+
+    /*     * ******************************************************************
+     * ************************************************************************     
+     * <-----------------BLOQUE DE ELIMINAR ---------------->
+     * ************************************************************************
+     * ************************************************************************
+     */
+
+    public function eliminarDocentes($cedula) {
+        try {
+            $cedulaEliminar = $cedula;
+            $link = Conectarse();
+            $sql = "SELECT sp_eliminarDocente('$cedulaEliminar')";
+            $num = pg_exec($link, $sql);
+            return $num;
+            pg_free_result($num);
+            pg_close($link);
+        } catch (Exception $ex) {
+            echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
+        }
+    }
+
+    /*     * ******************************************************************
+     * ************************************************************************     
+     * <-----------------BLOQUE DE BUSCAR / INSERCIONES---------------->
+     * ************************************************************************
+     * ************************************************************************
+     */
+
+    public function buscarDocentes($op, $dato) {
+
+        try {
+            $datoBuscar = $dato;
+            $opSql = $op;
+            $link = Conectarse();
+            $sql1 = "SELECT * FROM docente where cedula='$datoBuscar';";
+            $sql2 = "SELECT * FROM docente where apellidos like'$datoBuscar%';";
+            if ($opSql == 1) {
+                $result = pg_exec($link, $sql1);
+            }
+            if ($opSql == 2) {
+                $result = pg_exec($link, $sql2);
+            }
+            while ($row = pg_fetch_array($result)) {
+                $docenteB[] = $row;
+            }
+            return $docenteB;
+            pg_free_result($result);
+            pg_close($link);
+        } catch (Exception $ex) {
+            echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
+        }
+    }
+
 }
 
 ?>
