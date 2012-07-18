@@ -286,13 +286,13 @@ class BusinessLogic {
         }
     }
 
-    public function getListarPublicacion() {     
+    public function getListarPublicacion() {
         try {
             $dataAccess = new DataAccesComponents();
             $data = $dataAccess->listarPublicacion();
             if ($data != NULL) {
                 foreach ($data as $col) {
-                    $datos[] = new Publicaciones($col[1], $col[2],$col[3],$col[4],$col[5],$col[6]);
+                    $datos[] = new Publicaciones($col[1], $col[2], $col[3], $col[4], $col[5], $col[6]);
                 }
             }
             return $datos;
@@ -300,13 +300,14 @@ class BusinessLogic {
             echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
         }
     }
- public function getListarCapacitacion() {     
+
+    public function getListarCapacitacion() {
         try {
             $dataAccess = new DataAccesComponents();
             $data = $dataAccess->listarCapacitacion();
             if ($data != NULL) {
                 foreach ($data as $col) {
-                    $datos[] = new Capacitacion($col[1], $col[2],$col[3],$col[4]);
+                    $datos[] = new Capacitacion($col[1], $col[2], $col[3], $col[4]);
                 }
             }
             return $datos;
@@ -314,6 +315,22 @@ class BusinessLogic {
             echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
         }
     }
+
+    public function getListarDocente() {
+        try {
+            $dataAccess = new DataAccesComponents();
+            $data = $dataAccess->listarDocente();
+            if ($data != NULL) {
+                foreach ($data as $col) {
+                    $datos[] = new Docente($col[0], $col[1], $col[2], $col[3], $col[4], $col[5],$col[6], $col[7], $col[8], $col[9], $col[10]);
+                }
+            }
+            return $datos;
+        } catch (Exception $ex) {
+            echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
+        }
+    }
+
     public function agregarPublicacionesDocente($cedulaDocente, $codigoPublicacion, $fecha, $descripcion) {
         try {
             $publicacionesDocente = new PublicacionesDocente($cedulaDocente, $codigoPublicacion, $fecha, $descripcion);
