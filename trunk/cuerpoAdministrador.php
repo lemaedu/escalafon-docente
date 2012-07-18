@@ -74,6 +74,7 @@
                     <a href="index.php?task=IngresarCapacitacion">Ingresar</a>
                     <a href="#">Modificar</a>
                     <a href="#">Eliminar</a>
+                    <a href="index.php?task=ListarCapacitacion">Listar</a>
                 </div>
                 <!--7rd drop down menu -->                                                   
                 <div id="dropmenu7" class="dropmenudiv" style="width: 150px;">

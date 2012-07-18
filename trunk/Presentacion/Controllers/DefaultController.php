@@ -40,6 +40,8 @@ class DefaultController {
                 break;
             case "IngresarCapacitacion":$this->ShowIngresarCapacitacion();
                 break;
+            case "ListarCapacitacion":$this->ShowListarCapacitacion();
+                break;
             case "IngresarFormacion":$this->ShowIngresarFormacion();
                 break;
             case "ListarFormacion":$this->ShowListarFormacion();
@@ -199,6 +201,14 @@ class DefaultController {
         $lista = $businessLogic->getListarPublicacion();
         require_once 'encabezado.php';
         require_once 'Presentacion/Vista/ListarPublicacion.php';
+        //require_once 'piedepagina.php';
+    }
+
+    public function ShowListarCapacitacion() {
+        $businessLogic = new BusinessLogic();
+        $lista = $businessLogic->getListarCapacitacion();
+        require_once 'encabezado.php';
+        require_once 'Presentacion/Vista/ListarCapacitacion.php';
         //require_once 'piedepagina.php';
     }
 
