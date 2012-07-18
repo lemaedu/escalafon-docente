@@ -124,6 +124,7 @@ class DataAccesComponents {
             echo "No se pudo pudieron ingresar los datos Error" . $ex->getMessage();
         }
     }
+
     /*
      * Agregar Dignidad
      */
@@ -142,6 +143,7 @@ class DataAccesComponents {
             echo "No se pudo pudieron ingresar los datos Error" . $ex->getMessage();
         }
     }
+
     public function agregarPublicacion(Publicaciones $publicaciones) {
         try {
             $area = $publicaciones->getArea();
@@ -151,12 +153,12 @@ class DataAccesComponents {
             $numeropublicacion = $publicaciones->getNumeropublicacion();
             $puntajeanio = $publicaciones->getPuntajeanio();
             $link = conectarse();
-            
+
             $Sql = "SELECT sp_ingresarPublicacion('$area','$tipo_publicacion','$editorial','$numeropublicacion','$puntajeanio','$descripcion')";
-            
+
             $result = pg_query($link, $Sql);
             return $result;
-            
+
             pg_close($link);
         } catch (Exception $ex) {
             echo "No se pudo pudieron ingresar los datos Error" . $ex->getMessage();
@@ -172,6 +174,20 @@ class DataAccesComponents {
                 $formacion[] = $row;
             }
             return $formacion;
+        } catch (Exception $ex) {
+            echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
+        }
+    }
+
+    public function listarActividad() {
+        try {
+            $link = conectarse();
+            $sql = "select * from actividades";
+            $result = pg_exec($link, $sql);
+            while ($row = pg_fetch_array($result)) {
+                $tupla[] = $row;
+            }
+            return $tupla;
         } catch (Exception $ex) {
             echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
         }

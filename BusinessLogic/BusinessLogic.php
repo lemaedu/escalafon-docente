@@ -9,6 +9,7 @@ require_once ("BusinessLogic/Actividad.php");
 require_once ("BusinessLogic/Ascenso.php");
 require_once ("BusinessLogic/Publicaciones.php");
 require_once ("BusinessLogic/Dignidad.php");
+
 //require_once ("BusinessLogic/FormacionDocente.php");
 //require_once ("BusinessLogic/PublicacionesDocente.php");
 
@@ -97,16 +98,16 @@ class BusinessLogic {
      * @param  $cedulas
      * @return array  activiades
      */
-    public function getListaActividades($cedula) {
+    public function getListarActividad() {
         try {
-            $dataAcces = new DataAccesComponents();
-            $actividadesData = $dataAcces->getListaAscenso($cedula);
-            if ($actividadesData != null) {
-                foreach ($actividadesData as $row) {
-                    $actividades[] = new Actividad($row['0'], $row['1']);
+            $dataAccess = new DataAccesComponents();
+            $data = $dataAccess->listarActividad();
+            if ($data != NULL) {
+                foreach ($data as $col) {
+                    $datos[] = new Actividad($col[1], $col[2]);
                 }
             }
-            return $actividades;
+            return $datos;
         } catch (Exception $ex) {
             echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
         }
