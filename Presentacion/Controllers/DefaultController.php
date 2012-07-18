@@ -36,6 +36,8 @@ class DefaultController {
                 break;
             case "IngresarDocente":$this->ShowIngresarDocente();
                 break;
+            case "ListarDocente":$this->ShowListarDocente();
+                break;
             case "ModificarDocente":$this->ShowModificarDocente();
                 break;
             case "IngresarCapacitacion":$this->ShowIngresarCapacitacion();
@@ -209,6 +211,13 @@ class DefaultController {
         $lista = $businessLogic->getListarCapacitacion();
         require_once 'encabezado.php';
         require_once 'Presentacion/Vista/ListarCapacitacion.php';
+        //require_once 'piedepagina.php';
+    }
+    public function ShowListarDocente() {
+        $businessLogic = new BusinessLogic();
+        $lista = $businessLogic->getListarDocente();
+        require_once 'encabezado.php';
+        require_once 'Presentacion/Vista/ListarDocente.php';
         //require_once 'piedepagina.php';
     }
 

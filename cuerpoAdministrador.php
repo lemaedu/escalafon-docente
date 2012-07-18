@@ -45,6 +45,7 @@
                     <a href="index.php?task=IngresarDocente">Ingresar</a>
                     <a href="index.php?task=ModificarDocente">Modificar</a>
                     <a href="#">Eliminar</a>
+                    <a href="index.php?task=ListarDocente">Listar</a>
                 </div>
 
                 <!--3rd drop down menu -->                                                   
