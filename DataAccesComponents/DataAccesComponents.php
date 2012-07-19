@@ -28,7 +28,10 @@ class DataAccesComponents {
             $direccion = $docente->get_direccion();
             $fingreso = $docente->get_fechaingreso();
             $foto = $docente->get_foto();
-
+            //Con los datos del Docente agrego a la tabla usuarios
+            $Sql = "select sp_ingresarusuario('$cedula','$cedula','2')";
+            $result = pg_query($link, $Sql);
+            //Datos generales del Docente
             $Sql = "SELECT sp_ingresarDocente('$cedula','$nombre','$apellidos','$fechaNac','$sexo','$nacionalidad',
             '$telefono','$categoria','$direccion','$fingreso','$foto')";
 
@@ -67,17 +70,16 @@ class DataAccesComponents {
     public function agregarFormacion(Formacion $formacion) {
         try {
             $link = conectarse();
-            //le mando los parametros al procedimiento Almacenado          
-            $cedula=  $formacion->getCedula();
+            //le mando los parametros al procedimiento Almacenado 
+
             $nivelEducacion = $formacion->getNivelEducacion();
             $codigoRefrendacion = $formacion->getCodigoRefrendacion();
             $numPaginaRegistro = $formacion->getNumPaginaRegistro();
             $puntos = $formacion->getPuntos();
             $fechaIngreso = $formacion->getFechaIngreso();
-            $fechaEntrega=$formacion->getFechaEntrega();
             $descripcion = $formacion->getDescripcion();
 
-            $Sql = "SELECT sp_ingresarFormacion('$cedula','$nivelEducacion','$codigoRefrendacion','$numPaginaRegistro','$puntos','$fechaIngreso','$fechaEntrega','$descripcion')";
+            $Sql = "SELECT sp_ingresarFormacion('$nivelEducacion','$codigoRefrendacion','$numPaginaRegistro','$puntos','$fechaIngreso','$descripcion')";
 
             $result = pg_query($link, $Sql);
 
@@ -377,6 +379,22 @@ class DataAccesComponents {
 
             return $lista;
 
+            pg_free_result($result);
+            pg_close($link);
+        } catch (Exception $ex) {
+            echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
+        }
+    }
+    public function buscarUsuario($user, $password) {
+         try {            
+            $link = Conectarse();
+
+            $sql = "select login,clave,accion from usuarios where login = '".$user."' and clave = '".$password."'";
+            $result = pg_exec($link, $sql);            
+
+            $row = pg_fetch_array($result);
+            return $row;
+            
             pg_free_result($result);
             pg_close($link);
         } catch (Exception $ex) {

@@ -29,7 +29,7 @@
                         <li><a href="#" rel="dropmenu6">Capacitaciones</a></li>
                         <li><a href="#" rel="dropmenu7">Formaciones</a></li>                        
                         <li><a href="#" rel="dropmenu8">Usuario</a></li>  
-                        <li><a href="index.php?task=Default">Logout</a></li>
+                        <li><a href="index.php?task=Logout">Logout</a></li>
                     </ul>
                 </div>
 

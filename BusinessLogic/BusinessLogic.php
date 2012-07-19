@@ -68,11 +68,13 @@ class BusinessLogic {
         }
     }
 
+    
+
     /* Agregar Actividad */
 
-    public function agregarUsuario($user, $password,$rol) {
+    public function agregarUsuario($user, $password, $rol) {
         try {
-            $datos = new Usuario($user,$password,$rol);
+            $datos = new Usuario($user, $password, $rol);
             $data = new DataAccesComponents();
 
             $num = $data->agregarUsuario($datos);
@@ -128,13 +130,14 @@ class BusinessLogic {
             echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
         }
     }
-public function getListarUsuario() {
+
+    public function getListarUsuario() {
         try {
             $dataAccess = new DataAccesComponents();
             $data = $dataAccess->listarUsuario();
             if ($data != NULL) {
                 foreach ($data as $col) {
-                    $datos[] = new Usuario($col[0], $col[1],$col[2]);
+                    $datos[] = new Usuario($col[0], $col[1], $col[2]);
                 }
             }
             return $datos;
@@ -142,6 +145,7 @@ public function getListarUsuario() {
             echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
         }
     }
+
     public function editarActividad($codigo, $nombre) {
         try {
             $actividad = new Actividad($codigo, $nombre);
@@ -207,10 +211,10 @@ public function getListarUsuario() {
         }
     }
 
-    public function agregarFormacion($cedula, $nivelEducacion, $codigoRefrendacion, $numPaginaRegistro, $puntos, $fechaIngreso,$fechaEntrega,$descripcion) {
+    public function agregarFormacion($nivelEducacion, $codigoRefrendacion, $numPaginaRegistro, $puntos, $fechaIngreso, $descripcion) {
         try {
-            $codigoFormacion="";
-            $formacion = new Formacion($codigoFormacion, $cedula, $nivelEducacion, $codigoRefrendacion, $numPaginaRegistro, $puntos, $fechaIngreso, $fechaEntrega, $descripcion);
+            $formacion = new Formacion($nivelEducacion, $codigoRefrendacion, $numPaginaRegistro, $puntos, $fechaIngreso, $descripcion);
+
             $dat = new DataAccesComponents();
             $num = $dat->agregarFormacion($formacion);
             return $num;
