@@ -13,9 +13,9 @@
             <div class="menu_nav">
                 <div class="menu_nav_resize">
                     <ul>        
-                        <li class="active"><a href="index.php?task=Default">Inicio</a></li>                        
-                        <li ><a href="index.php?task=Acercade">Acerca de</a></li>                        
-                        <li><a href="index.php?task=Contactos">Contactos</a></li>
+                        <li><a href="index.php?task=Default">Inicio</a></li>                        
+                        <li><a href="index.php?task=Acercade">Acerca de</a></li>                        
+                        <li class="active"><a href="index.php?task=Contactos">Contactos</a></li>
                         <li><a href="index.php?task=LoginUsuario">Login</a></li>
                     </ul>
                 </div>

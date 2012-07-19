@@ -17,12 +17,10 @@ require_once ("DataAccesComponents/DataAccesComponents.php");
             <div class="menu_nav">
                 <div class="menu_nav_resize">
                     <ul>
-                        <li><a href="index.php?task=Default">Inicio</a></li>
-                        <li><a href="support.html">Soporte</a></li>
-                        <li><a href="about.html">Acerca de</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contactos</a></li>
-                        <li class="active"><a href="index.php?task=LoginUsuario">Login</a></li>
+                        <li><a href="index.php?task=Default">Inicio</a></li> 
+                        <li><a href="index.php?task=Acercade">Acerca de</a></li>                        
+                        <li><a href="index.php?task=Contactos">Contactos</a></li>
+                        <li class="active"><a href="index.php?task=LoginUsuario">Login</a></li>                        
                     </ul>
                 </div>
                 <div class="clr"></div>
