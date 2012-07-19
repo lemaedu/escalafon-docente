@@ -12,22 +12,43 @@
  */
 class Formacion {
 
-//put your code here
 
+    private $codigoFormacion;
+    private $cedula;
     private $nivelEducacion;
     private $codigoRefrendacion;
     private $numPaginaRegistro;
     private $puntos;
-    private $fechaIngreso;
+    private $fechaRegistro;
+    private $fechaEntrega;
     private $descripcion;
 
-    function __construct($nivelEducacion, $codigoRefrendacion, $numPaginaRegistro, $puntos, $fechaIngreso, $descripcion) {
+    function __construct($codigoFormacion, $cedula, $nivelEducacion, $codigoRefrendacion, $numPaginaRegistro, $puntos, $fechaRegistro, $fechaEntrega, $descripcion) {
+        $this->codigoFormacion = $codigoFormacion;
+        $this->cedula = $cedula;
         $this->nivelEducacion = $nivelEducacion;
         $this->codigoRefrendacion = $codigoRefrendacion;
         $this->numPaginaRegistro = $numPaginaRegistro;
         $this->puntos = $puntos;
-        $this->fechaIngreso = $fechaIngreso;
+        $this->fechaRegistro = $fechaRegistro;
+        $this->fechaEntrega = $fechaEntrega;
         $this->descripcion = $descripcion;
+    }
+
+    public function getCodigoFormacion() {
+        return $this->codigoFormacion;
+    }
+
+    public function setCodigoFormacion($codigoFormacion) {
+        $this->codigoFormacion = $codigoFormacion;
+    }
+
+    public function getCedula() {
+        return $this->cedula;
+    }
+
+    public function setCedula($cedula) {
+        $this->cedula = $cedula;
     }
 
     public function getNivelEducacion() {
@@ -62,12 +83,20 @@ class Formacion {
         $this->puntos = $puntos;
     }
 
-    public function getFechaIngreso() {
-        return $this->fechaIngreso;
+    public function getFechaRegistro() {
+        return $this->fechaRegistro;
     }
 
-    public function setFechaIngreso($fechaIngreso) {
-        $this->fechaIngreso = $fechaIngreso;
+    public function setFechaRegistro($fechaRegistro) {
+        $this->fechaRegistro = $fechaRegistro;
+    }
+
+    public function getFechaEntrega() {
+        return $this->fechaEntrega;
+    }
+
+    public function setFechaEntrega($fechaEntrega) {
+        $this->fechaEntrega = $fechaEntrega;
     }
 
     public function getDescripcion() {
