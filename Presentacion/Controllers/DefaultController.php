@@ -73,6 +73,8 @@ class DefaultController {
                 break;
             case "IngresarUsuario":$this->ShowIngresarUsuario();
                 break;
+            case "ListarUsuario":$this->ShowListarUsuario();
+                break;
             default:$this->default1();
                 break;
         }
@@ -232,6 +234,7 @@ class DefaultController {
         require_once 'Presentacion/Vista/ListarCapacitacion.php';
         //require_once 'piedepagina.php';
     }
+
     public function ShowListarDocente() {
         $businessLogic = new BusinessLogic();
         $lista = $businessLogic->getListarDocente();
@@ -276,7 +279,7 @@ class DefaultController {
         require_once 'encabezado.php';
         require_once 'Presentacion/Vista/IngresarPublicacion.php';
         //require_once 'piedepagina.php';
-    }  
+    }
 
     /*
      * LLAMAMOS A LA PAGINA Ingresar Usuario
@@ -285,6 +288,14 @@ class DefaultController {
     public function ShowIngresarUsuario() {
         require_once 'encabezado.php';
         require_once 'Presentacion/Vista/IngresarUsuario.php';
+        //require_once 'piedepagina.php';
+    }
+
+    public function ShowListarUsuario() {
+        $businessLogic = new BusinessLogic();
+        $lista = $businessLogic->getListarUsuario();
+        require_once 'encabezado.php';
+        require_once 'Presentacion/Vista/ListarUsuario.php';
         //require_once 'piedepagina.php';
     }
 
