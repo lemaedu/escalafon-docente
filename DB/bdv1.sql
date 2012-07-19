@@ -3,8 +3,7 @@ CREATE TABLE DOCENTE (
 	Nombres varchar(25),
 	Apellidos varchar(25),
 	FechaNacimiento date,
---	Edad int,
-	Sexo char(1),
+        Sexo char(1),
 	Nacionalidad varchar(25),
 	Telefono varchar(9),
 	CategoriaDocente varchar(25),
@@ -15,43 +14,25 @@ CREATE TABLE DOCENTE (
 );
 
 CREATE TABLE ACTIVIDADES (
-	CodigoActividad serial,
-	NombreActividad varchar(50),
-  CONSTRAINT pk_Actividades PRIMARY KEY(CodigoActividad)
-);
-
-CREATE TABLE DOCENTE_ACTIVIDADES (
-	Cedula varchar(10) NOT NULL,
-	CodigoActividad int,
+	Cedula varchar(10),
+        CodigoActividad serial,
 	Horas int NOT NULL,
-  CONSTRAINT pk_DocenteActividades PRIMARY KEY(Cedula,CodigoActividad),
-  CONSTRAINT fk_DocActividades1 FOREIGN KEY (Cedula) REFERENCES DOCENTE(Cedula),
-  CONSTRAINT fk_DocActividades2 FOREIGN KEY (CodigoActividad) REFERENCES ACTIVIDADES(CodigoActividad)
+	NombreActividad varchar(50),
+ CONSTRAINT pk_Actividades PRIMARY KEY(CodigoActividad),
+ CONSTRAINT fk_Actividades FOREIGN KEY (Cedula) REFERENCES DOCENTE(Cedula)
 );
-
---DROP TABLE IF EXISTS ASCENSO CASCADE;
 
 CREATE TABLE ASCENSO (
-	CodigoAscenso serial,        
+        Cedula varchar(10) NOT NULL,
+	CodigoAscenso serial,       
 	Nivel varchar(25),
-	Estado varchar(50),
-  CONSTRAINT pk_Ascenso PRIMARY KEY(CodigoAscenso)
-);
-
---DROP TABLE IF EXISTS DOCENTE_ASCENSO CASCADE;
-
-CREATE TABLE DOCENTE_ASCENSO (
-	CodigoAscenso int,
-	Cedula varchar(10) NOT NULL,
+	Estado varchar(50),	
         DocumentosValidos int,--Esto es Codigo de Capacitacion
 	FechaAscenso date,
 	PuntajeTotal float,
-  CONSTRAINT pk_DocenteAsenco PRIMARY KEY(Cedula,CodigoAscenso),
-  CONSTRAINT fk_DocAsenso1 FOREIGN KEY (CodigoAscenso) REFERENCES ASCENSO(CodigoAscenso),
-  CONSTRAINT fk_DocAsenso2 FOREIGN KEY (Cedula) REFERENCES DOCENTE(Cedula)
+  CONSTRAINT pk_Asenco PRIMARY KEY(CodigoAscenso),
+  CONSTRAINT fk_DocAsenso FOREIGN KEY (Cedula) REFERENCES DOCENTE(Cedula)
 );
-
---DROP TABLE IF EXISTS DIGNIDADES_DESEMPENIADAS CASCADE;
 
 CREATE TABLE DIGNIDADES (
 	CodigoDignidad serial,
@@ -60,8 +41,6 @@ CREATE TABLE DIGNIDADES (
 	Descripcion varchar,	
   CONSTRAINT pk_Dignidades PRIMARY KEY(CodigoDignidad)
 );
-
---DROP TABLE IF EXISTS DOCENTE_DIGNIDADES CASCADE;
 
 CREATE TABLE DOCENTE_DIGNIDADES (
 	CodigoDignidad serial,
@@ -74,81 +53,49 @@ CREATE TABLE DOCENTE_DIGNIDADES (
   CONSTRAINT fk_DocenteDignidades2 FOREIGN KEY (Cedula) REFERENCES DOCENTE(Cedula)
 );
 
---DROP TABLE IF EXISTS CAPACITACION CASCADE;
-
 CREATE TABLE CAPACITACION (
+	Cedula varchar(10) NOT NULL,
 	CodigoCapacitacion serial,
         InstitucionCap varchar(50) not null,
-        temaCapacitacion varchar,
-	Puntos float,
-	Descripcion varchar,
-  CONSTRAINT pk_Capacitacion PRIMARY KEY(CodigoCapacitacion)
-);
-
---DROP TABLE IF EXISTS DOCENTE_CAPACITACION CASCADE;
-
-CREATE TABLE DOCENTE_CAPACITACION (
-	CodigoCapacitacion int,
-	Cedula varchar(10) NOT NULL,
+        temaCapacitacion varchar,	
         Tipo varchar(20) not null,--Asistido, Aprobado, Participado
 	NumeroHoras int NOT NULL,
 	NumeroDias int,
+        Puntos float,
         fecha   date,
-  CONSTRAINT pk_DocenteCapacitacion PRIMARY KEY(CodigoCapacitacion,Cedula),
-  CONSTRAINT fk_DocenteCapacitacion1 FOREIGN KEY (CodigoCapacitacion) REFERENCES CAPACITACION(CodigoCapacitacion),
-  CONSTRAINT fk_DocenteCapacitacion2 FOREIGN KEY (Cedula) REFERENCES DOCENTE(Cedula)
+	Descripcion varchar,
+  CONSTRAINT pk_Capacitacion PRIMARY KEY(CodigoCapacitacion),
+  CONSTRAINT fk_Capacitacion2 FOREIGN KEY (Cedula) REFERENCES DOCENTE(Cedula)
 );
 
---DROP TABLE IF EXISTS PUBLICACIONES CASCADE;
-
 CREATE TABLE PUBLICACIONES (
+	Cedula varchar(10) NOT NULL,
 	CodigoPublicacion serial,
         Area varchar(30),--Ejemplo Matematicas	
 	Tipo_Publicacion varchar,--Ejemplo Revista Libro, solucionario
         editorial varchar(50),
 	NumeroPublicacion int,
 	PuntajeAnio float,
-        Descripcion varchar,
-  CONSTRAINT pk_Publicaciones PRIMARY KEY(CodigoPublicacion)
-);
-
---DROP TABLE IF EXISTS PUBLICACIONES_DOCENTE CASCADE;
-CREATE TABLE PUBLICACIONES_DOCENTE (
-	CodigoPublicacion int,
-	Cedula varchar(10) NOT NULL,
 	FechaPublicacion date NOT NULL,        
         Descripcion varchar(50),
-  CONSTRAINT pk_DocentePublicacion PRIMARY KEY(CodigoPublicacion,Cedula),
-  CONSTRAINT fk_DocPublicacion1 FOREIGN KEY (CodigoPublicacion) REFERENCES PUBLICACIONES(CodigoPublicacion),
-  CONSTRAINT fk_DocPublicacion2 FOREIGN KEY (Cedula) REFERENCES DOCENTE(Cedula)
+  CONSTRAINT pk_Publicacion PRIMARY KEY(CodigoPublicacion), 
+  CONSTRAINT fk_Publicacion FOREIGN KEY (Cedula) REFERENCES DOCENTE(Cedula)
 );
 
---DROP TABLE IF EXISTS FORMACION CASCADE;
-
 CREATE TABLE FORMACION (
+        Cedula varchar(10) NOT NULL,
 	CodigoFormacion serial,
 	NivelEducacion varchar,
         CodigoRefrendacion varchar(50) not null,
         NumPaginaRegistro varchar(20),
         Puntos float,
-	FechaRegistro date,--gistro de Titulo
-	Descripcion varchar(50),	
-  CONSTRAINT pk_Formacion PRIMARY KEY(CodigoFormacion)
-);
-
---DROP TABLE IF EXISTS DOCENTE_FORMACION CASCADE;
-
-CREATE TABLE DOCENTE_FORMACION (
-	Cedula varchar(10) NOT NULL,
-	CodigoFormacion int,
+	FechaRegistro date,--gistro de Titulo	
 	FechaEntrega date,--Entrega Documentos Espoch
         Descripcion varchar(50),
-  CONSTRAINT pk_DocenteFormacion PRIMARY KEY(CodigoFormacion,Cedula),
-  CONSTRAINT fk_DocFormacion1 FOREIGN KEY (Cedula) REFERENCES DOCENTE(Cedula),
-  CONSTRAINT fk_DocFormacion2 FOREIGN KEY (CodigoFormacion) REFERENCES FORMACION(CodigoFormacion)
+  CONSTRAINT pk_Formacion PRIMARY KEY(CodigoFormacion),
+  CONSTRAINT fk_Formacion FOREIGN KEY (Cedula) REFERENCES DOCENTE(Cedula)
 );
 
---DROP TABLE IF EXISTS USUARIOS CASCADE;
 
 CREATE TABLE USUARIOS (
 	Login varchar(25) NOT NULL,
