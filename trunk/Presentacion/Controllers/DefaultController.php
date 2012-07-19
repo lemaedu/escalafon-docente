@@ -49,7 +49,10 @@ class DefaultController {
                 break;
             case "ListarCapacitacion":$this->ShowListarCapacitacion();
                 break;
-            case "BuscarDocente_todo":$this->ShowIngresarFormacion();
+            case "BuscarDocentes_todo":$this->BuscarDocentes_todo();
+                break;
+
+            case "IngresarFormacion":$this->ShowIngresarFormacion();
                 break;
             case "ListarFormacion":$this->ShowListarFormacion();
                 break;
@@ -58,8 +61,6 @@ class DefaultController {
             case "ListarActividad":$this->ShowListarActividad();
                 break;
             case "IngresarAscenso":$this->ShowIngresarAscenso();
-                break;
-            case "IngresarFormacion":$this->ShowIngresarFormacion();
                 break;
             case "ListarAscenso":$this->ShowListarAscenso();
                 break;
@@ -211,9 +212,15 @@ class DefaultController {
      * Llamamos a las paginas de la seccion Formaciones
      */
 
-    public function ShowIngresarFormacion() {
+    public function BuscarDocentes_todo() {
         require_once 'encabezado.php';
         require_once 'Presentacion/Vista/BuscarDocentes_todo.php';
+        //require_once 'piedepagina.php';
+    }
+
+    public function ShowIngresarFormacion() {
+        require_once 'encabezado.php';
+        require_once 'Presentacion/Vista/IngresarFormacion.php';
         //require_once 'piedepagina.php';
     }
 
