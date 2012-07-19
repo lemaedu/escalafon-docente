@@ -128,6 +128,19 @@ end;
 
 
 
+CREATE OR REPLACE FUNCTION sp_ingresarAscenso(varchar,varchar,varchar,int,date,float)
+returns void AS'
+BEGIN
+INSERT INTO ascenso(
+            cedula, nivel, estado, documentosvalidos, fechaascenso, 
+            puntajetotal)
+    VALUES ($1,$2,$3,$4,$5,$6);
+end;
+ 'LANGUAGE 'plpgsql';
+
+
+
+
 
 
 

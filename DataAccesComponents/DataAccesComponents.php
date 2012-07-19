@@ -127,10 +127,14 @@ class DataAccesComponents {
     public function agregarAscenso(Ascenso $ascenso) {
         try {
 
-            $nivel = $ascenso->get_nivel();
-            $estado = $ascenso->get_estado();
+            $cedula = $ascenso->getCedula();
+            $nivel = $ascenso->getNivel();
+            $estado = $ascenso->getEstado();
+            $documentosValidos = $ascenso->getDocumentosValidos();
+            $fechaAscenso = $ascenso->getFechaAscenso();
+            $puntajeTotal = $ascenso->getPuntajeTotal();
             $link = Conectarse();
-            $Sql = "select sp_ingresarAscenso('$nivel','$estado')";
+            $Sql = "select sp_ingresarAscenso('$cedula','$nivel','$documentosValidos','$estado','$fechaAscenso','$puntajeTotal')";
             $result = pg_query($link, $Sql);
             return $result;
         } catch (Exception $ex) {
@@ -184,18 +188,18 @@ class DataAccesComponents {
 
     public function agregarPublicacion(Publicaciones $publicaciones) {
         try {
-            $codigoPublicacion=$publicaciones->getCodigoPublicacion();
-            $cedula=$publicaciones->getCedula();
-            $area=$publicaciones->getArea();
-            $tipo_publicacion=$publicaciones->getTipo_publicacion();
-            $editorial=$publicaciones->getEditorial();
-            $numeropublicacion=$publicaciones->getNumeropublicacion();
-            $puntajeanio=$publicaciones->getPuntajeanio();
-            $fechaPublicacion=$publicaciones->getFechaPublicacion();
-            $descripcion=$publicaciones->getDescripcion();
-            
+            $codigoPublicacion = $publicaciones->getCodigoPublicacion();
+            $cedula = $publicaciones->getCedula();
+            $area = $publicaciones->getArea();
+            $tipo_publicacion = $publicaciones->getTipo_publicacion();
+            $editorial = $publicaciones->getEditorial();
+            $numeropublicacion = $publicaciones->getNumeropublicacion();
+            $puntajeanio = $publicaciones->getPuntajeanio();
+            $fechaPublicacion = $publicaciones->getFechaPublicacion();
+            $descripcion = $publicaciones->getDescripcion();
+
             $link = conectarse();
-            
+
             $Sql = "SELECT sp_ingresarPublicacion('$cedula','$area','$tipo_publicacion','$editorial','$numeropublicacion','$puntajeanio','$fechaPublicacion','$descripcion')";
             $result = pg_query($link, $Sql);
             return $result;
