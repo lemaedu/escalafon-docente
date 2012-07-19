@@ -40,9 +40,10 @@ class BusinessLogic {
 
     /* Agregar Capacitacion */
 
-    public function agregarCapacitacion($institucionCap, $temaCap, $puntos, $descripcion) {
+    public function agregarCapacitacion($cedula, $institucionCap, $temaCapacitacion, $tipo, $numeroHoras, $numeroDias, $puntos, $fecha, $descripcion) {
         try {
-            $capacitacion = new Capacitacion($institucionCap, $temaCap, $puntos, $descripcion);
+            $codigoCapacitacion="";
+            $capacitacion = new Capacitacion($codigoCapacitacion, $cedula, $institucionCap, $temaCapacitacion, $tipo, $numeroHoras, $numeroDias, $puntos, $fecha, $descripcion);
 
             $data = new DataAccesComponents();
             $num = $data->agregarCapacitacion($capacitacion);

@@ -73,7 +73,7 @@
                 </div>
                 <!--6rd drop down menu -->                                                   
                 <div id="dropmenu6" class="dropmenudiv" style="width: 150px;">
-                    <a href="index.php?task=IngresarCapacitacion">Ingresar</a>
+                    <a href="index.php?task=BuscarDocentesCap">Ingresar</a>
                     <a href="#">Modificar</a>
                     <a href="#">Eliminar</a>
                     <a href="index.php?task=ListarCapacitacion">Listar</a>

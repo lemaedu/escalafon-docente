@@ -49,14 +49,23 @@ class DataAccesComponents {
 
     public function agregarCapacitacion(Capacitacion $capacitacion) {
         try {
-            $institucionCap = $capacitacion->get_institucionCap();
-            $temacapacitacion = $capacitacion->get_temaCap();
-            $puntos = $capacitacion->get_puntos();
-            $descripcion = $capacitacion->get_descripcion();
+
+            $cedula = $capacitacion->getCedula();
+            $institucionCap = $capacitacion->getInstitucionCap();
+            $temaCapacitacion = $capacitacion->getTemaCapacitacion();
+            $tipo = $capacitacion->getTipo();
+            $numeroHoras = $capacitacion->getNumeroHoras();
+            $numeroDias = $capacitacion->getNumeroDias();
+            $puntos = $capacitacion->getPuntos();
+            $fecha = $capacitacion->getFecha();
+            $descripcion = $capacitacion->getDescripcion();
+            
             $link = Conectarse();
 
-            $Sql = "select sp_ingresarcapacitacion('$institucionCap','$temacapacitacion','$puntos','$descripcion')";
+            $Sql = "select sp_ingresarCapacitacion('$cedula','$institucionCap','$temaCapacitacion','$tipo',
+            '$numeroHoras','$numeroDias','$puntos','$fecha','$descripcion')";
             $result = pg_query($link, $Sql);
+            
             return $result;
         } catch (Exception $ex) {
             echo "No se pudo pudieron ingresar los datos Error" . $ex->getMessage();
@@ -67,20 +76,21 @@ class DataAccesComponents {
      * Agregar Formacion
      */
 
-    public function agregarFormacion(Formacion $formacion) {
+    public function agregarFormacion(Capacitacion $capacitacion) {
         try {
             $link = conectarse();
             //le mando los parametros al procedimiento Almacenado             
-             $cedula= $formacion->getCedula();
-             $nivelEducacion= $formacion->getNivelEducacion();
-             $codigoRefrendacion= $formacion->getCodigoRefrendacion();
-             $numPaginaRegistro= $formacion->getNumPaginaRegistro();
-             $puntos= $formacion->getPuntos();
-             $fechaRegistro= $formacion->getFechaRegistro();
-             $fechaEntrega= $formacion->getFechaEntrega();
-             $descripcion= $formacion->getDescripcion();
-            $Sql = "SELECT sp_ingresarformacion('$cedula','$nivelEducacion','$codigoRefrendacion','$numPaginaRegistro','$puntos','$fechaRegistro','$fechaEntrega','$descripcion')";
-            
+            $cedula = $capacitacion->getCedula();
+            $nstitucionCap = $capacitacion->getInstitucionCap();
+            $nivelEducacion = $capacitacion->getNivelEducacion();
+            $codigoRefrendacion = $capacitacion->getCodigoRefrendacion();
+            $numPaginaRegistro = $capacitacion->getNumPaginaRegistro();
+            $puntos = $capacitacion->getPuntos();
+            $fechaRegistro = $capacitacion->getFechaRegistro();
+            $fechaEntrega = $capacitacion->getFechaEntrega();
+            $descripcion = $capacitacion->getDescripcion();
+            $Sql = "SELECT sp_ingresarformacion('$cedula','$nstitucionCap',$nivelEducacion','$codigoRefrendacion',
+            '$numPaginaRegistro','$puntos','$fechaRegistro','$fechaEntrega','$descripcion')";
             $result = pg_query($link, $Sql);
 
             return $result;

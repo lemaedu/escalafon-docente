@@ -12,7 +12,7 @@
         <?php require_once 'cuerpoAdministrador.php'; ?>
         <div class="content">
             <div class="content_resize">
-                <form method="post" action="index.php?task=BuscarDocenteCap" class="iform" name="form1">
+                <form method="post" action="index.php?task=BuscarDocentesCap" class="iform" name="form1">
                     <ul>
                         <li class="iheader">Criterio de B&uacute;squeda</li>
                         <li><input class="iradio" type="radio" name="op" value="1">
@@ -64,7 +64,7 @@
                                             <td><?php echo $lista->get_cedula() ?> </td>
                                             <td><?php echo $lista->get_nombres() ?> </td>
                                             <td><?php echo $lista->get_apellidos() ?> </td>                                
-                                            <td><a href="index.php?task=IngresarF&cedula=<?php echo $lista->get_cedula() ?>&nombres=<?php echo $lista->get_nombres() ?>&apellidos=<?php echo $lista->get_apellidos() ?>"><input class="iradio" type="radio" name="op" value="2" checked><label for="" class="ilabel">Ok</label></a></td>                                
+                                            <td><a href="index.php?task=IngresarCapacitacion&cedula=<?php echo $lista->get_cedula() ?>&nombres=<?php echo $lista->get_nombres() ?>&apellidos=<?php echo $lista->get_apellidos() ?>"><input class="iradio" type="radio" name="op" value="2" checked><label for="" class="ilabel">Ok</label></a></td>                                
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

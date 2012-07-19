@@ -51,7 +51,10 @@ class DefaultController {
                 break;
             case "BuscarDocentes_todo":$this->BuscarDocentes_todo();
                 break;
+            case "BuscarDocentesCap":$this->BuscarDocentesCap();
+                break;
 
+                
             case "IngresarFormacion":$this->ShowIngresarFormacion();
                 break;
             case "ListarFormacion":$this->ShowListarFormacion();
@@ -217,7 +220,11 @@ class DefaultController {
         require_once 'Presentacion/Vista/BuscarDocentes_todo.php';
         //require_once 'piedepagina.php';
     }
-
+    public function BuscarDocentesCap() {
+        require_once 'encabezado.php';
+        require_once 'Presentacion/Vista/BuscarDocentesCap.php';
+        //require_once 'piedepagina.php';
+    }
     public function ShowIngresarFormacion() {
         require_once 'encabezado.php';
         require_once 'Presentacion/Vista/IngresarFormacion.php';

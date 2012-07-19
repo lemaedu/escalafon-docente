@@ -101,6 +101,25 @@ end;
  'LANGUAGE 'plpgsql';
 
 
+CREATE OR REPLACE FUNCTION sp_ingresarCapacitacion(varchar,varchar,varchar,varchar,int,int,float,date,varchar)
+returns void AS'
+BEGIN
+INSERT INTO capacitacion(
+            cedula, institucioncap, temacapacitacion, 
+            tipo, numerohoras, numerodias, puntos, fecha, descripcion)
+    VALUES ($1,$2,$3, $4,$5,$6,$7,$8,$9);
+end;
+ 'LANGUAGE 'plpgsql';
+
+
+
+
+
+
+
+
+
+
 --=====================================================================
 CREATE OR REPLACE FUNCTION sp_modificarFormacion(int,varchar,varchar,varchar,float,date,varchar)
 returns void AS'
@@ -207,14 +226,7 @@ INSERT INTO ascenso(
 end;
  'LANGUAGE 'plpgsql';
 --=============================================================================
-CREATE OR REPLACE FUNCTION sp_ingresarCapacitacion(varchar,varchar,int)
-returns void AS'
-BEGIN
-INSERT INTO capacitacion(
-            codigocapacitacion, descripcion, puntos)
-    VALUES ($1, $2, $3);
-end;
- 'LANGUAGE 'plpgsql';
+
 --=================VISTAS PARA===========================================
 --=======================================================================
 
