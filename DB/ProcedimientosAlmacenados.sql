@@ -80,13 +80,13 @@ end;
  'LANGUAGE 'plpgsql';
 
 --=====================================================================
-CREATE OR REPLACE FUNCTION sp_ingresarFormacion(varchar,varchar,varchar,float,date,varchar)
+CREATE OR REPLACE FUNCTION sp_ingresarFormacion(varchar,varchar,varchar,varchar,float,date,date,varchar)
 returns void AS'
 BEGIN
 INSERT INTO formacion(
-            niveleducacion, codigorefrendacion, numpaginaregistro, 
-            puntos, fecharegistro, descripcion)
-    VALUES ($1,$2,$3, $4,$5,$6);
+            cedula, niveleducacion, codigorefrendacion, 
+            numpaginaregistro, puntos, fecharegistro, fechaentrega, descripcion)
+    VALUES ($1,$2,$3, $4,$5,$6,$7,$8);
 end;
  'LANGUAGE 'plpgsql';
 

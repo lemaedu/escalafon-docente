@@ -14,8 +14,8 @@ CREATE TABLE DOCENTE (
 );
 
 CREATE TABLE ACTIVIDADES (
-	Cedula varchar(10),
         CodigoActividad serial,
+	Cedula varchar(10),
 	Horas int NOT NULL,
 	NombreActividad varchar(50),
  CONSTRAINT pk_Actividades PRIMARY KEY(CodigoActividad),
@@ -23,8 +23,8 @@ CREATE TABLE ACTIVIDADES (
 );
 
 CREATE TABLE ASCENSO (
-        Cedula varchar(10) NOT NULL,
-	CodigoAscenso serial,       
+	CodigoAscenso serial,
+        Cedula varchar(10) NOT NULL,     
 	Nivel varchar(25),
 	Estado varchar(50),	
         DocumentosValidos int,--Esto es Codigo de Capacitacion
@@ -54,8 +54,8 @@ CREATE TABLE DOCENTE_DIGNIDADES (
 );
 
 CREATE TABLE CAPACITACION (
-	Cedula varchar(10) NOT NULL,
 	CodigoCapacitacion serial,
+        Cedula varchar(10) NOT NULL,	
         InstitucionCap varchar(50) not null,
         temaCapacitacion varchar,	
         Tipo varchar(20) not null,--Asistido, Aprobado, Participado
@@ -69,8 +69,8 @@ CREATE TABLE CAPACITACION (
 );
 
 CREATE TABLE PUBLICACIONES (
-	Cedula varchar(10) NOT NULL,
 	CodigoPublicacion serial,
+        Cedula varchar(10) NOT NULL,	
         Area varchar(30),--Ejemplo Matematicas	
 	Tipo_Publicacion varchar,--Ejemplo Revista Libro, solucionario
         editorial varchar(50),
@@ -82,9 +82,9 @@ CREATE TABLE PUBLICACIONES (
   CONSTRAINT fk_Publicacion FOREIGN KEY (Cedula) REFERENCES DOCENTE(Cedula)
 );
 
-CREATE TABLE FORMACION (
-        Cedula varchar(10) NOT NULL,
+CREATE TABLE FORMACION (        
 	CodigoFormacion serial,
+        Cedula varchar(10) NOT NULL,
 	NivelEducacion varchar,
         CodigoRefrendacion varchar(50) not null,
         NumPaginaRegistro varchar(20),
