@@ -383,14 +383,15 @@ class BusinessLogic {
         public function buscarDocente($op, $dato) {
         try {
             $dataAccess = new DataAccesComponents();
-            $docenteBusca = $dataAccess->buscarDocentes($op, $dato);
-            if ($docenteBusca != NULL) {
-                foreach ($docenteBusca as $col) {
-                    $docentesBuscados[] = new Docente($col[0], $col[1], $col[2], $col[3], $col[4], $col[5],
-                                    $col[6], $col[7], $col[8], $col[9], $col[10], $col[11]);
+            $datos = $dataAccess->buscarDocentes($op, $dato);
+            if ($datos != NULL) {
+                foreach ($datos as $col) {
+                    $tupla[] = new Docente($col[0], $col[1], $col[2], $col[3], $col[4], $col[5],
+                                    $col[6], $col[7], $col[8], $col[9], $col[10]);
                 }
-            }
-            return $docentesBuscados;
+            }            
+                return $tupla;
+           
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }

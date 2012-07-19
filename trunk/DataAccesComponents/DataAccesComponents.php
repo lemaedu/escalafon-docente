@@ -220,6 +220,7 @@ class DataAccesComponents {
             echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
         }
     }
+
     public function listarPublicacion() {
         try {
             $link = conectarse();
@@ -233,6 +234,7 @@ class DataAccesComponents {
             echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
         }
     }
+
     public function listarCapacitacion() {
         try {
             $link = conectarse();
@@ -246,6 +248,7 @@ class DataAccesComponents {
             echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
         }
     }
+
     public function listarDocente() {
         try {
             $link = conectarse();
@@ -327,18 +330,23 @@ class DataAccesComponents {
             $datoBuscar = $dato;
             $opSql = $op;
             $link = Conectarse();
-            $sql1 = "SELECT * FROM docente where cedula='$datoBuscar';";
+
             $sql2 = "SELECT * FROM docente where apellidos like'$datoBuscar%';";
-            if ($opSql == 1) {
-                $result = pg_exec($link, $sql1);
+            switch ($op) {
+                case 1:$sql = "SELECT * FROM docente where cedula='$datoBuscar';";
+                    $result = pg_exec($link, $sql);
+                    break;
+                case 2:$sql = "SELECT * FROM docente where apellidos like'$datoBuscar%';";
+                    $result = pg_exec($link, $sql);
+                    break;
             }
-            if ($opSql == 2) {
-                $result = pg_exec($link, $sql2);
-            }
+
             while ($row = pg_fetch_array($result)) {
-                $docenteB[] = $row;
-            }
-            return $docenteB;
+                $lista[] = $row;
+            }            
+            
+            return $lista;
+            
             pg_free_result($result);
             pg_close($link);
         } catch (Exception $ex) {
