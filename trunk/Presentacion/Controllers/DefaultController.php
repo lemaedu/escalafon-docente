@@ -49,7 +49,7 @@ class DefaultController {
                 break;
             case "ListarCapacitacion":$this->ShowListarCapacitacion();
                 break;
-            case "IngresarFormacion":$this->ShowIngresarFormacion();
+            case "BuscarDocente_todo":$this->ShowIngresarFormacion();
                 break;
             case "ListarFormacion":$this->ShowListarFormacion();
                 break;
@@ -205,7 +205,7 @@ class DefaultController {
 
     public function ShowIngresarFormacion() {
         require_once 'encabezado.php';
-        require_once 'Presentacion/Vista/IngresarFormacion.php';
+        require_once 'Presentacion/Vista/BuscarDocentes_todo.php';
         //require_once 'piedepagina.php';
     }
 
