@@ -104,7 +104,8 @@ class BusinessLogic {
 
     public function agregarAscenso($cedula,$nivel, $estado,$documentosValidos,$fechaAscenso,$fechaAscenso,$puntajeTotal) {
         try {
-            $ascenso = new Ascenso($nivel, $estado);
+            $codigoAscenso="";
+            $ascenso = new Ascenso($codigoAscenso, $cedula, $nivel, $estado, $documentosValidos, $fechaAscenso, $puntajeTotal);
             $data = new DataAccesComponents();
             $num = $data->agregarAscenso($ascenso);
             return $num;
