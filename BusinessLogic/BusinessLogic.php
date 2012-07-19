@@ -88,9 +88,10 @@ class BusinessLogic {
 
     /* Agregar Publicaciones */
 
-    public function agregarPublicaciones($area, $editorial, $descripcion, $tipo_publicacion, $numeropublicacion, $puntajeanio) {
+    public function agregarPublicaciones($cedula, $area, $tipo_publicacion, $editorial, $numeropublicacion, $puntajeanio, $fechaPublicacion, $descripcion) {
         try {
-            $publicaciones = new Publicaciones($area, $editorial, $descripcion, $tipo_publicacion, $numeropublicacion, $puntajeanio);
+            $codigoPublicacion="";
+            $publicaciones = new Publicaciones($codigoPublicacion, $cedula, $area, $tipo_publicacion, $editorial, $numeropublicacion, $puntajeanio, $fechaPublicacion, $descripcion);
             $data = new DataAccesComponents();
             $num = $data->AgregarPublicacion($publicaciones);
             return $num;
