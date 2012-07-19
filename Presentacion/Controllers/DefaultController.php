@@ -71,6 +71,8 @@ class DefaultController {
                 break;
             case "ListarDignidad":$this->ShowListarDignidad();
                 break;
+            case "IngresarUsuario":$this->ShowIngresarUsuario();
+                break;
             default:$this->default1();
                 break;
         }
@@ -274,15 +276,15 @@ class DefaultController {
         require_once 'encabezado.php';
         require_once 'Presentacion/Vista/IngresarPublicacion.php';
         //require_once 'piedepagina.php';
-    }
+    }  
 
     /*
-     * LLAMAMOS A LA PAGINA Ingresar Dignidad
+     * LLAMAMOS A LA PAGINA Ingresar Usuario
      */
 
-    public function ShowIngresarDignidad() {
+    public function ShowIngresarUsuario() {
         require_once 'encabezado.php';
-        require_once 'Presentacion/Vista/IngresarDignidad.php';
+        require_once 'Presentacion/Vista/IngresarUsuario.php';
         //require_once 'piedepagina.php';
     }
 
