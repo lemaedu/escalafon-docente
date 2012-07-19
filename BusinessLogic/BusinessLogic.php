@@ -211,9 +211,10 @@ class BusinessLogic {
         }
     }
 
-    public function agregarFormacion($nivelEducacion, $codigoRefrendacion, $numPaginaRegistro, $puntos, $fechaIngreso, $descripcion) {
+    public function agregarFormacion($cedula, $nivelEducacion, $codigoRefrendacion, $numPaginaRegistro, $puntos, $fechaRegistro, $fechaEntrega, $descripcion) {
         try {
-            $formacion = new Formacion($nivelEducacion, $codigoRefrendacion, $numPaginaRegistro, $puntos, $fechaIngreso, $descripcion);
+            $codigoFormacion="";
+            $formacion = new Formacion($codigoFormacion, $cedula, $nivelEducacion, $codigoRefrendacion, $numPaginaRegistro, $puntos, $fechaRegistro, $fechaEntrega, $descripcion);
 
             $dat = new DataAccesComponents();
             $num = $dat->agregarFormacion($formacion);
