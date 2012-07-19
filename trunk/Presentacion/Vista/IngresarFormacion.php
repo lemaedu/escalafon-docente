@@ -82,10 +82,8 @@
             $fechaEntrega = $_POST["fechaEntrega"];
             $descripcion = $_POST["descripcion"];
             //copio la foto al servidor
-            copy($_FILES['foto']['tmp_name'], "fotodocente/" . $foto);
-
-            $ruta = "fotodocente/" . $foto;
-            //Crea un objeto logica de negocio            
+            
+            copy($_FILES['foto']['tmp_name'], "fotodocente/" . $foto);         
             $business = new BusinessLogic();
             $op = $business->agregarFormacion($cedula, strtoupper($nivelEducacion), strtoupper($codigoRefrendacion), $numPaginaRegistro, $puntos, $fechaIngreso, $fechaEntrega, $descripcion);
             if ($op != 0) {
