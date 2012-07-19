@@ -21,15 +21,15 @@
                     <ul>
 
                         <li><label for="">*C&eacute;dula</label>
-                            <input class="itext" type="text" name="cedula" maxlength="30" required="si" value="<?php echo $_GET['cedula'] ?>"/>
+                            <input class="itext" type="text" disabled="true" name="cedula" maxlength="30" required="si" value="<?php echo $_GET['cedula'] ?>"/>
                         </li>
 
                         <li><label for="">Nombres</label>
-                            <input class="itext" type="text" name="nombres" maxlength="30" required="si" value="<?php echo $_GET['nombres'] ?>"/>
+                            <input class="itext" type="text" disabled="true" name="nombres" maxlength="30" required="si" value="<?php echo $_GET['nombres'] ?>"/>
                         </li>
 
                         <li><label for="">Apellidos</label>
-                            <input class="itext" type="text" name="apellidos" maxlength="30" required="si" <?php echo $_GET['apellidos'] ?>/>
+                            <input class="itext" type="text" disabled="true" name="apellidos" maxlength="30" required="si" value="<?php echo $_GET['apellidos'] ?>"/>
                         </li>
                         <li class="iheader">Datos de Formaci&oacute;n</li>
 
