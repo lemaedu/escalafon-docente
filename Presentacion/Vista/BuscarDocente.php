@@ -13,7 +13,7 @@
         <div class="content">
             <div class="content_resize">
                 <fieldset><legend></legend><br>
-                    <form method="post" action="index.php?task=BuscarDocente" class="iform">                    
+                    <form method="post" action="index.php?task=BuscarDocente_todo" class="iform">                    
                         <ul>
                             <li class="iheader">Criterio de B&uacute;squeda</li>
                             <li><input class="iradio" type="radio" name="op" value="1">
@@ -36,7 +36,6 @@
                         $opSelecionado = $_POST["op"];
                         $business = new BusinessLogic();
                         $datosBuscados = $business->buscarDocente($opSelecionado, strtoupper($datoBuscar));
-//        echo 'Resultado de Op'.$op;
                         if ($datosBuscados != NULL) {
                             ?>                           
                             <center> <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
