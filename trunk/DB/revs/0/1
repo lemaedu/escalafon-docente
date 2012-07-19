@@ -1,0 +1,65 @@
+id: 2-1.0.r1/0
+type: dir
+count: 0
+cpath: /ProyectoEscalafonDocente/trunk
+copyroot: 0 /
+
+id: 4-1.0.r1/88
+type: dir
+count: 0
+cpath: /ProyectoEscalafonDocente/branches
+copyroot: 0 /
+
+id: 5-1.0.r1/180
+type: dir
+count: 0
+cpath: /ProyectoEscalafonDocente/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 4-1.0.r1/88
+K 4
+tags
+V 16
+dir 5-1.0.r1/180
+K 5
+trunk
+V 14
+dir 2-1.0.r1/0
+END
+ENDREP
+id: 0-1.0.r1/381
+type: dir
+count: 0
+text: 1 269 99 99 3789f94580f91c0d86b1cd0cad862134
+cpath: /ProyectoEscalafonDocente
+copyroot: 0 /
+
+PLAIN
+K 24
+ProyectoEscalafonDocente
+V 16
+dir 0-1.0.r1/381
+END
+ENDREP
+id: 0.0.r1/585
+type: dir
+pred: 0.0.r0/17
+count: 1
+text: 1 516 56 56 c6f3389453e642788006bf329ee0e9b4
+cpath: /
+copyroot: 0 /
+
+_5.0.t0-0 add-dir false false /ProyectoEscalafonDocente/tags
+
+_0.0.t0-0 add-dir false false /ProyectoEscalafonDocente
+
+_2.0.t0-0 add-dir false false /ProyectoEscalafonDocente/trunk
+
+_4.0.t0-0 add-dir false false /ProyectoEscalafonDocente/branches
+
+
+585 710
