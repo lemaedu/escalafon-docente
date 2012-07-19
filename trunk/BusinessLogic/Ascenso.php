@@ -1,35 +1,85 @@
 <?php
+
 /*
  * Entidad de negocio de tipo Actividad
  */
-class Ascenso{
-  
 
-    private $_nivel;
-    private $_estado;
-   
-    public function get_nivel() {
-        return $this->_nivel;
+class Ascenso {
+
+    private $cedula;
+    private $nivel;
+    private$estado;
+    private $documentosValidos;
+    private$fechaAscenso;
+    private$fechaAscenso;
+    private $puntajeTotal;
+    function __construct($cedula, $nivel, $estado, $documentosValidos, $fechaAscenso, $fechaAscenso, $puntajeTotal) {
+        $this->cedula = $cedula;
+        $this->nivel = $nivel;
+        $this->estado = $estado;
+        $this->documentosValidos = $documentosValidos;
+        $this->fechaAscenso = $fechaAscenso;
+        $this->fechaAscenso = $fechaAscenso;
+        $this->puntajeTotal = $puntajeTotal;
+    }
+    public function getCedula() {
+        return $this->cedula;
     }
 
-    public function set_nivel($_nivel) {
-        $this->_nivel = $_nivel;
+    public function setCedula($cedula) {
+        $this->cedula = $cedula;
     }
 
-    public function get_estado() {
-        return $this->_estado;
+    public function getNivel() {
+        return $this->nivel;
     }
 
-    public function set_estado($_estado) {
-        $this->_estado = $_estado;
+    public function setNivel($nivel) {
+        $this->nivel = $nivel;
     }
 
-    function __construct($_nivel, $_estado) {
-        $this->_nivel = $_nivel;
-        $this->_estado = $_estado;
+    public function getEstado() {
+        return $this->estado;
     }
 
-      
+    public function setEstado($estado) {
+        $this->estado = $estado;
+    }
+
+    public function getDocumentosValidos() {
+        return $this->documentosValidos;
+    }
+
+    public function setDocumentosValidos($documentosValidos) {
+        $this->documentosValidos = $documentosValidos;
+    }
+
+    public function getFechaAscenso() {
+        return $this->fechaAscenso;
+    }
+
+    public function setFechaAscenso($fechaAscenso) {
+        $this->fechaAscenso = $fechaAscenso;
+    }
+
+    public function getFechaAscenso_1() {
+        return $this->fechaAscenso;
+    }
+
+    public function setFechaAscenso_1($fechaAscenso) {
+        $this->fechaAscenso = $fechaAscenso;
+    }
+
+    public function getPuntajeTotal() {
+        return $this->puntajeTotal;
+    }
+
+    public function setPuntajeTotal($puntajeTotal) {
+        $this->puntajeTotal = $puntajeTotal;
+    }
+
+
 
 }
+
 ?>
