@@ -66,14 +66,14 @@
                 </div>
                 <!--5rd drop down menu -->                                                   
                 <div id="dropmenu5" class="dropmenudiv" style="width: 150px;">
-                    <a href="index.php?task=BuscarDocentesPublicacion">Ingresar</a>
+                    <a href="index.php?task=IngresarPublicacion">Ingresar</a>
                     <a href="#">Modificar</a>
                     <a href="#">Eliminar</a>
                     <a href="index.php?task=ListarPublicacion">Listar</a>
                 </div>
                 <!--6rd drop down menu -->                                                   
                 <div id="dropmenu6" class="dropmenudiv" style="width: 150px;">
-                    <a href="index.php?task=BuscarDocentesCap">Ingresar</a>
+                    <a href="index.php?task=IngresarCapacitacion">Ingresar</a>
                     <a href="#">Modificar</a>
                     <a href="#">Eliminar</a>
                     <a href="index.php?task=ListarCapacitacion">Listar</a>
@@ -81,15 +81,15 @@
                 <!--7rd drop down menu -->                                                   
                 <div id="dropmenu7" class="dropmenudiv" style="width: 150px;">
                     <a href="index.php?task=BuscarDocentes_todo">Ingresar</a>
-                    <a href="#">Modificar</a>
-                    <a href="#">Eliminar</a>
-                    <a href="index.php?task=ListarFormacion">Listar</a>
+<!--                    <a href="#">Modificar</a>
+                    <a href="#">Eliminar</a>-->
+<!--                    <a href="index.php?task=ListarFormacion">Listar</a>-->
                 </div>
                 <!--8rd drop down menu -->                                                   
                 <div id="dropmenu8" class="dropmenudiv" style="width: 150px;">
                     <a href="index.php?task=IngresarUsuario">Ingresar</a>
-                    <a href="#">Modificar</a>
-                    <a href="#">Eliminar</a>
+<!--                    <a href="#">Modificar</a>
+                    <a href="#">Eliminar</a>-->
                     <a href="index.php?task=ListarUsuario">Listar</a>
                 </div>
                 <script type="text/javascript">

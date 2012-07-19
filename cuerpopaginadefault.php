@@ -42,16 +42,16 @@ and open the template in the editor.
           <ul class="sb_menu">
             <li><a href="index.php?task=Usuario">Usuario</a></li>
             <li><a href="index.php?task=Administrador">Administrador</a></li>
-            <li><a href="#">Style Demo</a></li>
+<!--            <li><a href="#">Style Demo</a></li>
             <li><a href="#">Blog</a></li>
             <li><a href="#">Archives</a></li>
-            <li><a href="#">Website Templates</a></li>
+            <li><a href="#">Website Templates</a></li>-->
           </ul>
         </div>
         <div class="gadget">
-          <h2 class="star"><span>Sponsors</span></h2>
+<!--          <h2 class="star"><span>Sponsors</span></h2>-->
           <ul class="ex_menu">
-            <li><a href="#">DreamTemplate</a><br />
+<!--            <li><a href="#">DreamTemplate</a><br />
               Over 6,000+ Premium Web Templates</li>
             <li><a href="#">TemplateSOLD</a><br />
               Premium WordPress &amp; Joomla Themes</li>
@@ -62,7 +62,7 @@ and open the template in the editor.
             <li><a href="#">Evrsoft</a><br />
               Website Builder Software &amp; Tools</li>
             <li><a href="#">MyVectorStore</a><br />
-              Royalty Free Stock Icons</li>
+              Royalty Free Stock Icons</li>-->
           </ul>
         </div>
       </div>
