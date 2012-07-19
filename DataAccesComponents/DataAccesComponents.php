@@ -67,16 +67,17 @@ class DataAccesComponents {
     public function agregarFormacion(Formacion $formacion) {
         try {
             $link = conectarse();
-            //le mando los parametros al procedimiento Almacenado 
-
+            //le mando los parametros al procedimiento Almacenado          
+            $cedula=  $formacion->getCedula();
             $nivelEducacion = $formacion->getNivelEducacion();
             $codigoRefrendacion = $formacion->getCodigoRefrendacion();
             $numPaginaRegistro = $formacion->getNumPaginaRegistro();
             $puntos = $formacion->getPuntos();
             $fechaIngreso = $formacion->getFechaIngreso();
+            $fechaEntrega=$formacion->getFechaEntrega();
             $descripcion = $formacion->getDescripcion();
 
-            $Sql = "SELECT sp_ingresarFormacion('$nivelEducacion','$codigoRefrendacion','$numPaginaRegistro','$puntos','$fechaIngreso','$descripcion')";
+            $Sql = "SELECT sp_ingresarFormacion('$cedula','$nivelEducacion','$codigoRefrendacion','$numPaginaRegistro','$puntos','$fechaIngreso','$fechaEntrega','$descripcion')";
 
             $result = pg_query($link, $Sql);
 
