@@ -80,7 +80,7 @@
                 </div>
                 <!--7rd drop down menu -->                                                   
                 <div id="dropmenu7" class="dropmenudiv" style="width: 150px;">
-                    <a href="index.php?task=IngresarFormacion">Ingresar</a>
+                    <a href="index.php?task=BuscarDocentes_todo">Ingresar</a>
                     <a href="#">Modificar</a>
                     <a href="#">Eliminar</a>
                     <a href="index.php?task=ListarFormacion">Listar</a>
