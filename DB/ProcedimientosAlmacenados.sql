@@ -139,6 +139,15 @@ end;
  'LANGUAGE 'plpgsql';
 
 
+CREATE OR REPLACE FUNCTION sp_ingresarActividad(varchar,int,varchar,varchar)
+returns void AS'
+BEGIN
+INSERT INTO actividades(
+            cedula, horas, nombreactividad, descripcion)
+    VALUES ($1, $2, $3, $4);
+end;
+ 'LANGUAGE 'plpgsql';
+
 
 
 

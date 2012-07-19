@@ -22,6 +22,12 @@ class DefaultController {
      */
     public function renderize() {
         switch ($this->_task) {
+
+            case "IngresarActividad":$this->ShowIngresarActividad();
+                break;
+            case
+            "BuscarDocenteActividad":$this->ShowBuscardocenteActividad();
+                break;
             case "Actividades":$this->ShowActividades();
                 break;
             case "UpdateActividades":$this->ShowUpdateActividades();
@@ -99,6 +105,19 @@ class DefaultController {
     /*
      * FUNCION PARA MOSTRAR LA PAGINA DE ADMINISTRACION
      */
+
+    public function ShowBuscardocenteActividad() {
+        require_once 'encabezado.php';
+        require_once 'Presentacion/Vista/BuscardocenteActividad.php';
+        //require_once 'piedepagina.php';
+    }
+
+    public function ShowIngresarActividad() {
+        require_once 'encabezado.php';
+        require_once 'Presentacion/Vista/IngresarActividad.php';
+        //require_once 'piedepagina.php';
+    }
+
     public function ShowActividades() {
         require_once 'cabecera.php';
         require_once ("Presentacion/Vista/Ingresar Actividad.php");
@@ -149,9 +168,11 @@ class DefaultController {
     public function ShowLogout() {
         require_once 'Presentacion/Vista/Logout.php';
     }
+
     public function ShowContactos() {
         require_once 'Presentacion/Vista/Contactos.php';
     }
+
     public function ShowAcercade() {
         require_once 'Presentacion/Vista/Acercade.php';
     }
@@ -294,11 +315,11 @@ class DefaultController {
      * LLAMAMOS A LA PAGINA Ingresar Actividad
      */
 
-    public function ShowIngresarActividad() {
-        require_once 'encabezado.php';
-        require_once 'Presentacion/Vista/IngresarActividad.php';
-        //require_once 'piedepagina.php';
-    }
+//    public function ShowIngresarActividad() {
+//        require_once 'encabezado.php';
+//        require_once 'Presentacion/Vista/IngresarActividad.php';
+//        //require_once 'piedepagina.php';
+//    }
 
     /*
      * LLAMAMOS A LA PAGINA Ingresar Ascenso

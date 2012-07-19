@@ -5,14 +5,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>-->
-    <?php 
-    session_start();
-        echo "$registrado";
-        if(!session_is_registered('registrada')){
-            session_destroy();
-            header('Location:cuerpologin.php');
-        }
-        session_destroy();
-        //require_once 'cuerpologin.php'; ?>    
+<?php
+session_start();
+echo "$registrado";
+if (!session_is_registered('registrada')) {
+    session_destroy();
+    header('Location:cuerpologin.php');
+}
+session_destroy();
+//require_once 'cuerpologin.php'; 
+?>    
 <!--</body>
 </html>-->

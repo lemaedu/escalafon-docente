@@ -106,15 +106,19 @@ class DataAccesComponents {
 
     public function agregarActividad(Actividad $actividad) {
         try {
-            $nombre = $actividad->get_nombre();
+            $link = conectarse();
+            //le mando los parametros al procedimiento Almacenado          
+            $cedula=  $actividad->get_cedula();            
+            $horas = $actividad->get_horas();
+            $nombreactividad = $actividad->get_nombre();
             $descripcion = $actividad->get_descripcion();
 
-            $link = Conectarse();
+            $Sql = "SELECT sp_ingresarActividad('$cedula','$horas','$nombreactividad','$descripcion')";
 
-            $Sql = "select sp_ingresarActividad('$nombre','$descripcion')";
             $result = pg_query($link, $Sql);
 
             return $result;
+            pg_close($link);
         } catch (Exception $ex) {
             echo "No se pudo pudieron ingresar los datos Error" . $ex->getMessage();
         }

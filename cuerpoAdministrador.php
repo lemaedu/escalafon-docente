@@ -35,7 +35,7 @@
 
                 <!--1st drop down menu -->                                                   
                 <div id="dropmenu1" class="dropmenudiv">
-                    <a href="index.php?task=IngresarActividad">Ingresar</a>
+                    <a href="index.php?task=BuscarDocenteActividad">Ingresar</a>
                     <a href="index.php?task=">Modificar</a>
                     <a href="index.php?task=">Eliminar</a>                            
                     <a href="index.php?task=ListarActividad">Listar</a>
@@ -66,14 +66,14 @@
                 </div>
                 <!--5rd drop down menu -->                                                   
                 <div id="dropmenu5" class="dropmenudiv" style="width: 150px;">
-                    <a href="index.php?task=IngresarPublicacion">Ingresar</a>
+                    <a href="index.php?task=BuscarDocentesPublicacion">Ingresar</a>
                     <a href="#">Modificar</a>
                     <a href="#">Eliminar</a>
                     <a href="index.php?task=ListarPublicacion">Listar</a>
                 </div>
                 <!--6rd drop down menu -->                                                   
                 <div id="dropmenu6" class="dropmenudiv" style="width: 150px;">
-                    <a href="index.php?task=IngresarCapacitacion">Ingresar</a>
+                    <a href="index.php?task=BuscarDocentesCap">Ingresar</a>
                     <a href="#">Modificar</a>
                     <a href="#">Eliminar</a>
                     <a href="index.php?task=ListarCapacitacion">Listar</a>

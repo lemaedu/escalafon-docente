@@ -56,13 +56,12 @@ class BusinessLogic {
 
     /* Agregar Actividad */
 
-    public function agregarActividad($nombre, $descripcion) {
+     public function agregarActividad($_cedula, $_horas, $_nombre, $_descripcion) {
         try {
-            $actividad = new Actividad($nombre, $descripcion);
-            $data = new DataAccesComponents();
-
-            $num = $data->agregarActividad($actividad);
-
+            $_codigo="";
+            $actividad = new Actividad($_codigo, $_cedula, $_horas, $_nombre, $_descripcion);
+            $dat = new DataAccesComponents();
+            $num = $dat->agregarActividad($actividad);
             return $num;
         } catch (Exception $ex) {
             echo "No se pudo pudieron ingresar los datos Error" . $ex->getMessage();
