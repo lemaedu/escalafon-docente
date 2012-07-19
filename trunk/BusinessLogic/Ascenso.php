@@ -10,8 +10,7 @@ class Ascenso {
     private $nivel;
     private$estado;
     private $documentosValidos;
-    private$fechaAscenso;
-    private$fechaAscenso;
+    private$fechaAscenso;    
     private $puntajeTotal;
     function __construct($cedula, $nivel, $estado, $documentosValidos, $fechaAscenso, $fechaAscenso, $puntajeTotal) {
         $this->cedula = $cedula;
