@@ -70,17 +70,17 @@ class DataAccesComponents {
     public function agregarFormacion(Formacion $formacion) {
         try {
             $link = conectarse();
-            //le mando los parametros al procedimiento Almacenado 
-
-            $nivelEducacion = $formacion->getNivelEducacion();
-            $codigoRefrendacion = $formacion->getCodigoRefrendacion();
-            $numPaginaRegistro = $formacion->getNumPaginaRegistro();
-            $puntos = $formacion->getPuntos();
-            $fechaIngreso = $formacion->getFechaIngreso();
-            $descripcion = $formacion->getDescripcion();
-
-            $Sql = "SELECT sp_ingresarFormacion('$nivelEducacion','$codigoRefrendacion','$numPaginaRegistro','$puntos','$fechaIngreso','$descripcion')";
-
+            //le mando los parametros al procedimiento Almacenado             
+             $cedula= $formacion->getCedula();
+             $nivelEducacion= $formacion->getNivelEducacion();
+             $codigoRefrendacion= $formacion->getCodigoRefrendacion();
+             $numPaginaRegistro= $formacion->getNumPaginaRegistro();
+             $puntos= $formacion->getPuntos();
+             $fechaRegistro= $formacion->getFechaRegistro();
+             $fechaEntrega= $formacion->getFechaEntrega();
+             $descripcion= $formacion->getDescripcion();
+            $Sql = "SELECT sp_ingresarformacion('$cedula','$nivelEducacion','$codigoRefrendacion','$numPaginaRegistro','$puntos','$fechaRegistro','$fechaEntrega','$descripcion')";
+            
             $result = pg_query($link, $Sql);
 
             return $result;
@@ -223,9 +223,9 @@ class DataAccesComponents {
 
     public function listarUsuario() {
         try {
-            $link = conectarse();            
+            $link = conectarse();
             $sql = "select * from usuarios";
-            $result = pg_exec($link, $sql);            
+            $result = pg_exec($link, $sql);
             while ($row = pg_fetch_array($result)) {
                 //$sql = "select descripcion from accion where codigoaccion = '".$row["accion"]."'";
                 //$result = pg_exec($link, $sql);
@@ -385,16 +385,17 @@ class DataAccesComponents {
             echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
         }
     }
+
     public function buscarUsuario($user, $password) {
-         try {            
+        try {
             $link = Conectarse();
 
-            $sql = "select login,clave,accion from usuarios where login = '".$user."' and clave = '".$password."'";
-            $result = pg_exec($link, $sql);            
+            $sql = "select login,clave,accion from usuarios where login = '" . $user . "' and clave = '" . $password . "'";
+            $result = pg_exec($link, $sql);
 
             $row = pg_fetch_array($result);
             return $row;
-            
+
             pg_free_result($result);
             pg_close($link);
         } catch (Exception $ex) {
