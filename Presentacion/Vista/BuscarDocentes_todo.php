@@ -44,12 +44,12 @@
                                     <tr>
                                         <th scope="col" class="rounded-company">C&eacute;dula</th>                                                                                                         
                                         <th scope="col" class="rounded-q1">Nombres</th>
-                                        <th scope="col" class="rounded-q1">Apellidos</th>                                                                        
+                                        <th scope="col" class="rounded-q4">Apellidos</th>                                                                        
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="6" class="rounded-foot-left"><em>ESPOCH - <?php echo date("d/m/Y"); ?></em></td>
+                                        <td colspan="2" class="rounded-foot-left"><em>ESPOCH - <?php echo date("d/m/Y"); ?></em></td>
                                         <td class="rounded-foot-right">&nbsp;</td>
                                     </tr>
                                 </tfoot>
