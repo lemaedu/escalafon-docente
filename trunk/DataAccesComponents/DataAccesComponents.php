@@ -144,6 +144,31 @@ class DataAccesComponents {
         }
     }
 
+    /*
+     * Agregar Dignidad
+     */
+
+    public function agregarUsuario(Usuario $usuario) {
+        try {
+            $user = $usuario->get_usuario();
+            $password = $usuario->get_password();
+            $rol = $usuario->get_rol();
+            $link = Conectarse();
+            //busco el codigo del rol en la tabla accion
+            $rolcod = "select codigoaccion from accion where descripcion = '" . $rol . "'";
+            $resultaccion = pg_query($link, $rolcod);
+            //almaceno el valor de la columna devuelta
+            $rol = pg_fetch_array($resultaccion);
+            $rolq = $rol["codigoaccion"];
+            //ingreso los datos una vez obtenido el codigo del rol
+            $Sql = "select sp_ingresarusuario('$user','$password','$rolq')";
+            $result = pg_query($link, $Sql);
+            return $result;
+        } catch (Exception $ex) {
+            echo "No se pudo pudieron ingresar los datos Error" . $ex->getMessage();
+        }
+    }
+
     public function agregarPublicacion(Publicaciones $publicaciones) {
         try {
             $area = $publicaciones->getArea();
@@ -193,12 +218,16 @@ class DataAccesComponents {
         }
     }
 
-    public function listarDignidad() {
+    public function listarUsuario() {
         try {
-            $link = conectarse();
-            $sql = "select * from dignidades";
-            $result = pg_exec($link, $sql);
+            $link = conectarse();            
+            $sql = "select * from usuarios";
+            $result = pg_exec($link, $sql);            
             while ($row = pg_fetch_array($result)) {
+                //$sql = "select descripcion from accion where codigoaccion = '".$row["accion"]."'";
+                //$result = pg_exec($link, $sql);
+                //$row = pg_fetch_array($result);
+                //$row2 = $row["descripcion"]; 
                 $tupla[] = $row;
             }
             return $tupla;
@@ -343,10 +372,10 @@ class DataAccesComponents {
 
             while ($row = pg_fetch_array($result)) {
                 $lista[] = $row;
-            }            
-            
+            }
+
             return $lista;
-            
+
             pg_free_result($result);
             pg_close($link);
         } catch (Exception $ex) {

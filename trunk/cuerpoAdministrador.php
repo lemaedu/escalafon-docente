@@ -27,8 +27,8 @@
                         <li><a href="#" rel="dropmenu4">Ascensos</a></li>
                         <li><a href="#" rel="dropmenu5">Publicaciones</a></li>
                         <li><a href="#" rel="dropmenu6">Capacitaciones</a></li>
-                        <li><a href="#" rel="dropmenu7">Formaciones</a></li>
-                        <li><a href="#" rel="dropmenu8">Usuarios</a></li>
+                        <li><a href="#" rel="dropmenu7">Formaciones</a></li>                        
+                        <li><a href="#" rel="dropmenu8">Usuario</a></li>  
                         <li><a href="index.php?task=Default">Logout</a></li>
                     </ul>
                 </div>
@@ -90,7 +90,7 @@
                     <a href="index.php?task=IngresarUsuario">Ingresar</a>
                     <a href="#">Modificar</a>
                     <a href="#">Eliminar</a>
-                    <a href="index.php?task=ListarUsuarios">Listar</a>
+                    <a href="index.php?task=ListarUsuario">Listar</a>
                 </div>
                 <script type="text/javascript">
 

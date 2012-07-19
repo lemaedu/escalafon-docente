@@ -9,6 +9,7 @@ require_once ("BusinessLogic/Actividad.php");
 require_once ("BusinessLogic/Ascenso.php");
 require_once ("BusinessLogic/Publicaciones.php");
 require_once ("BusinessLogic/Dignidad.php");
+require_once ("BusinessLogic/Usuario.php");
 
 //require_once ("BusinessLogic/FormacionDocente.php");
 //require_once ("BusinessLogic/PublicacionesDocente.php");
@@ -67,6 +68,21 @@ class BusinessLogic {
         }
     }
 
+    /* Agregar Actividad */
+
+    public function agregarUsuario($user, $password,$rol) {
+        try {
+            $datos = new Usuario($user,$password,$rol);
+            $data = new DataAccesComponents();
+
+            $num = $data->agregarUsuario($datos);
+
+            return $num;
+        } catch (Exception $ex) {
+            echo "No se pudo pudieron ingresar los datos Error" . $ex->getMessage();
+        }
+    }
+
     /* Agregar Publicaciones */
 
     public function agregarPublicaciones($area, $editorial, $descripcion, $tipo_publicacion, $numeropublicacion, $puntajeanio) {
@@ -112,7 +128,20 @@ class BusinessLogic {
             echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
         }
     }
-
+public function getListarUsuario() {
+        try {
+            $dataAccess = new DataAccesComponents();
+            $data = $dataAccess->listarUsuario();
+            if ($data != NULL) {
+                foreach ($data as $col) {
+                    $datos[] = new Usuario($col[0], $col[1],$col[2]);
+                }
+            }
+            return $datos;
+        } catch (Exception $ex) {
+            echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
+        }
+    }
     public function editarActividad($codigo, $nombre) {
         try {
             $actividad = new Actividad($codigo, $nombre);
@@ -322,7 +351,7 @@ class BusinessLogic {
             $data = $dataAccess->listarDocente();
             if ($data != NULL) {
                 foreach ($data as $col) {
-                    $datos[] = new Docente($col[0], $col[1], $col[2], $col[3], $col[4], $col[5],$col[6], $col[7], $col[8], $col[9], $col[10]);
+                    $datos[] = new Docente($col[0], $col[1], $col[2], $col[3], $col[4], $col[5], $col[6], $col[7], $col[8], $col[9], $col[10]);
                 }
             }
             return $datos;
@@ -371,8 +400,7 @@ class BusinessLogic {
             echo "No se pudo pudieron obtener los datos Error" . $ex->getMessage();
         }
     }
-    
-    
+
     /*     * ***********************************************************************
      * ************************************************************************     
      * <-----------------BLOQUE DE BUSCAR / INSERCIONES---------------->
@@ -380,7 +408,8 @@ class BusinessLogic {
      * ************************************************************************
      */
     /* Agregar Docente */
-        public function buscarDocente($op, $dato) {
+
+    public function buscarDocente($op, $dato) {
         try {
             $dataAccess = new DataAccesComponents();
             $datos = $dataAccess->buscarDocentes($op, $dato);
@@ -389,9 +418,8 @@ class BusinessLogic {
                     $tupla[] = new Docente($col[0], $col[1], $col[2], $col[3], $col[4], $col[5],
                                     $col[6], $col[7], $col[8], $col[9], $col[10]);
                 }
-            }            
-                return $tupla;
-           
+            }
+            return $tupla;
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
