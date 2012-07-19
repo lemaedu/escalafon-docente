@@ -34,11 +34,16 @@ class DefaultController {
                 break;
             case "Usuario":$this->ShowUsuario();
                 break;
+//------- TODAS LAS FUNCIONES PARA DOCENTE-------------------            
             case "IngresarDocente":$this->ShowIngresarDocente();
+                break;
+            case "BuscarDocente":$this->ShowBuscarDocente();
                 break;
             case "ListarDocente":$this->ShowListarDocente();
                 break;
             case "ModificarDocente":$this->ShowModificarDocente();
+                break;
+            case "EliminarDocente":$this->ShowEliminarDocente();
                 break;
             case "IngresarCapacitacion":$this->ShowIngresarCapacitacion();
                 break;
@@ -161,12 +166,24 @@ class DefaultController {
     }
 
     /*
-     * LLAMAMOS A LA PAGINA Modificar docente
+     * LLAMAMOS A LA PAGINA BUSCAR docente
      */
+
+    public function ShowBuscarDocente() {
+        require_once 'encabezado.php';
+        require_once 'Presentacion/Vista/BuscarDocente.php';
+        //require_once 'piedepagina.php';
+    }
 
     public function ShowModificarDocente() {
         require_once 'encabezado.php';
         require_once 'Presentacion/Vista/ModificarDocente.php';
+        //require_once 'piedepagina.php';
+    }
+
+    public function ShowEliminarDocente() {
+        require_once 'encabezado.php';
+        require_once 'Presentacion/Vista/EliminarDocente.php';
         //require_once 'piedepagina.php';
     }
 
