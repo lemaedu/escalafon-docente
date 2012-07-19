@@ -28,7 +28,7 @@ class DefaultController {
                 break;
             case "EditarActividades":$this->ShowEditarActividades();
                 break;
-            case "LoginUsuario":$this->ShowLoginFormulario();
+            case "LoginUsuario":$this->ShowLoginUsuario();
                 break;
             case "Administrador":$this->ShowAdministrador();
                 break;
@@ -49,9 +49,7 @@ class DefaultController {
                 break;
             case "ListarCapacitacion":$this->ShowListarCapacitacion();
                 break;
-            case "IngresarFormacion":$this->ShowIngresarFormacion();
-                break;
-            case "BuscarDocente_todo":$this->ShowBuscarDocente_todo();
+            case "BuscarDocente_todo":$this->ShowIngresarFormacion();
                 break;
             case "ListarFormacion":$this->ShowListarFormacion();
                 break;
@@ -60,6 +58,8 @@ class DefaultController {
             case "ListarActividad":$this->ShowListarActividad();
                 break;
             case "IngresarAscenso":$this->ShowIngresarAscenso();
+                break;
+            case "IngresarFormacion":$this->ShowIngresarFormacion();
                 break;
             case "ListarAscenso":$this->ShowListarAscenso();
                 break;
@@ -74,6 +74,8 @@ class DefaultController {
             case "IngresarUsuario":$this->ShowIngresarUsuario();
                 break;
             case "ListarUsuario":$this->ShowListarUsuario();
+                break;
+            case "Logout":$this->ShowLogout();
                 break;
             default:$this->default1();
                 break;
@@ -129,8 +131,12 @@ class DefaultController {
     /*
      * LLAMAMOS A LA PAGINA LOGIN
      */
-    public function ShowLoginFormulario() {
+    public function ShowLoginUsuario() {
         require_once 'Presentacion/Vista/LoginUsuario.php';
+    }
+
+    public function ShowLogout() {
+        require_once 'Presentacion/Vista/Logout.php';
     }
 
 //    FUNCION PARA MOSTRAR LA PAGINA POE DEFECTO
@@ -207,15 +213,10 @@ class DefaultController {
 
     public function ShowIngresarFormacion() {
         require_once 'encabezado.php';
-        require_once 'Presentacion/Vista/IngresarFormacion.php';
-        //require_once 'piedepagina.php';
-    }
-    public function ShowBuscarDocente_todo() {
-        require_once 'encabezado.php';
         require_once 'Presentacion/Vista/BuscarDocentes_todo.php';
         //require_once 'piedepagina.php';
     }
-    
+
     public function ShowListarFormacion() {
         $businessLogic = new BusinessLogic();
         $formacion = $businessLogic->getListarFormacion();

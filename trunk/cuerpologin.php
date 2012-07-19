@@ -1,3 +1,6 @@
+<? //session_start();
+require_once ("DataAccesComponents/DataAccesComponents.php");
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head><title></title>
@@ -35,18 +38,18 @@
                 <div class="content_resize">
                     <div class="mainbar">                        
                         <div class="article">          
-                            <form method="post" action="index.php?task=IngresarDocente" class="iform" name="form1">                    
+                            <form method="post" action="cuerpologin.php" class="iform" name="form1">                    
                                 <ul>
                                     <li class="iheader">Acceso al Sistema</li>
-                                    <li><label for="usuario">*Usuario</label>
+                                    <li><label for="">*Usuario</label>
                                         <input class="itext" type="text" name="usuario" maxlength="20" required="si"/>
                                     </li>
-                                    <li><label for="password">*Contrase&ntilde;a</label>
-                                        <input class="itext" type="password" name="password" id="password" maxlength="20" required="si"/>
+                                    <li><label for="">*Contrase&ntilde;a</label>
+                                        <input class="itext" type="password" name="password" maxlength="20" required="si"/>
                                     </li>
                                     <li class="iseparator">&nbsp;</li>
                                     <li><label>&nbsp;</label>
-                                        <input type="submit" class="ibutton" name="acceso" id="acceso" value="Acceder"/>
+                                        <input type="submit" class="ibutton" name="ingreso" value="Acceder"/>
                                     </li>
                                 </ul>
                             </form>
@@ -61,5 +64,31 @@
                 </div>
             </div>
         </div>
+        <?php
+        session_start();
+        if (isset($_POST['ingreso'])) {
+            $usuario = $_POST['usuario'];
+            $password = $_POST['password'];
+            //Crea un objeto            
+            $dataccess = new DataAccesComponents();
+            $rows = $dataccess->buscarUsuario($usuario, $password);
+
+            if ($rows["clave"] == $password) {
+                echo " <script type=\"text/javascript\">alert(\"Ingreso Satisfactorio\")</script>";
+                //$_SESSION["s_username"] = $rows['login']; 
+                session_register("registrada");
+                switch ($rows["accion"]) {
+                    case 1:header("Location:index.php?task=Secretaria");
+                        break;
+                    case 2:header("Location:index.php?task=Usuario");
+                        break;
+                    case 3:header("Location:index.php?task=Administrador");
+                        break;
+                }                
+            } else {
+                echo "<script type=\"text/javascript\">alert(\"Credenciales Incorrectas\")</script>";
+            }
+        }
+        ?>
     </body>
 </html>
