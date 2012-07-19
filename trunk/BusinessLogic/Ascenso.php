@@ -6,21 +6,36 @@
 
 class Ascenso {
 
+    private $CodigoAscenso;
     private $cedula;
     private $nivel;
     private$estado;
     private $documentosValidos;
-    private$fechaAscenso;    
+
+    private$fechaAscenso;
+
+    //private$fechaAscenso;    
+
     private $puntajeTotal;
-    function __construct($cedula, $nivel, $estado, $documentosValidos, $fechaAscenso, $fechaAscenso, $puntajeTotal) {
+
+    function __construct($CodigoAscenso, $cedula, $nivel, $estado, $documentosValidos, $fechaAscenso, $puntajeTotal) {
+        $this->CodigoAscenso = $CodigoAscenso;
         $this->cedula = $cedula;
         $this->nivel = $nivel;
         $this->estado = $estado;
         $this->documentosValidos = $documentosValidos;
         $this->fechaAscenso = $fechaAscenso;
-        $this->fechaAscenso = $fechaAscenso;
         $this->puntajeTotal = $puntajeTotal;
     }
+
+    public function getCodigoAscenso() {
+        return $this->CodigoAscenso;
+    }
+
+    public function setCodigoAscenso($CodigoAscenso) {
+        $this->CodigoAscenso = $CodigoAscenso;
+    }
+
     public function getCedula() {
         return $this->cedula;
     }
@@ -61,14 +76,6 @@ class Ascenso {
         $this->fechaAscenso = $fechaAscenso;
     }
 
-    public function getFechaAscenso_1() {
-        return $this->fechaAscenso;
-    }
-
-    public function setFechaAscenso_1($fechaAscenso) {
-        $this->fechaAscenso = $fechaAscenso;
-    }
-
     public function getPuntajeTotal() {
         return $this->puntajeTotal;
     }
@@ -76,8 +83,6 @@ class Ascenso {
     public function setPuntajeTotal($puntajeTotal) {
         $this->puntajeTotal = $puntajeTotal;
     }
-
-
 
 }
 
