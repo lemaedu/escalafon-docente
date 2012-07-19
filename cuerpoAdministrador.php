@@ -46,7 +46,8 @@
                     <a href="index.php?task=IngresarDocente">Ingresar</a>
                     <a href="index.php?task=BuscarDocente">Buscar</a>
                     <a href="#">Eliminar</a>
-                    <a href="index.php?task=ListarDocente">Listar</a>
+                    <a href="index.php?task=BuscarDocente">Buscar</a>
+                    <a href="index.php?task=agregarCargoDocente">Agrgar Cargo</a>
                 </div>
 
                 <!--3rd drop down menu -->                                                   
@@ -81,15 +82,15 @@
                 <!--7rd drop down menu -->                                                   
                 <div id="dropmenu7" class="dropmenudiv" style="width: 150px;">
                     <a href="index.php?task=BuscarDocentes_todo">Ingresar</a>
-<!--                    <a href="#">Modificar</a>
-                    <a href="#">Eliminar</a>-->
-<!--                    <a href="index.php?task=ListarFormacion">Listar</a>-->
+                    <!--                    <a href="#">Modificar</a>
+                                        <a href="#">Eliminar</a>-->
+                    <!--                    <a href="index.php?task=ListarFormacion">Listar</a>-->
                 </div>
                 <!--8rd drop down menu -->                                                   
                 <div id="dropmenu8" class="dropmenudiv" style="width: 150px;">
                     <a href="index.php?task=IngresarUsuario">Ingresar</a>
-<!--                    <a href="#">Modificar</a>
-                    <a href="#">Eliminar</a>-->
+                    <!--                    <a href="#">Modificar</a>
+                                        <a href="#">Eliminar</a>-->
                     <a href="index.php?task=ListarUsuario">Listar</a>
                 </div>
                 <script type="text/javascript">

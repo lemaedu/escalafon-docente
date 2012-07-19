@@ -23,8 +23,14 @@ class DefaultController {
     public function renderize() {
         switch ($this->_task) {
 
+
+
             case "IngresarActividad":$this->ShowIngresarActividad();
                 break;
+
+            case "agregarCargoDocente":$this->agregarCargoDocente();
+                break;
+
             case
             "BuscarDocenteActividad":$this->ShowBuscardocenteActividad();
                 break;
@@ -106,6 +112,10 @@ class DefaultController {
      * FUNCION PARA MOSTRAR LA PAGINA DE ADMINISTRACION
      */
 
+    public function agregarCargoDocente() {
+        require_once 'encabezado.php';
+        require_once 'Presentacion/Vista/agregarCargoDocente.php';
+    }
 
     public function ShowIngresarDignidad() {
         require_once 'encabezado.php';
