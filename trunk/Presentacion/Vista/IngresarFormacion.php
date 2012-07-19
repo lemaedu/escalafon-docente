@@ -21,7 +21,7 @@
                     <ul>
 
                         <li><label for="">*C&eacute;dula</label>
-                            <input class="itext" type="text" disabled="true" name="cedula" maxlength="30" required="si" value="<?php echo $_GET['cedula'] ?>"/>
+                            <input class="itext" type="text" name="cedula" maxlength="30" required="si" value="<?php echo $_GET['cedula'] ?>"/>
                         </li>
 
                         <li><label for="">Nombres</label>
