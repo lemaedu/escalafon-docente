@@ -106,6 +106,13 @@ class DefaultController {
      * FUNCION PARA MOSTRAR LA PAGINA DE ADMINISTRACION
      */
 
+
+    public function ShowIngresarDignidad() {
+        require_once 'encabezado.php';
+        require_once 'Presentacion/Vista/IngresarDignidad.php';
+        //require_once 'piedepagina.php';
+    }
+
     public function ShowBuscardocenteActividad() {
         require_once 'encabezado.php';
         require_once 'Presentacion/Vista/BuscardocenteActividad.php';
