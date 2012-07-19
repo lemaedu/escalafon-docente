@@ -21,7 +21,7 @@ and open the template in the editor.
                             <input class="itext" type="text" name="usuario" maxlength="50" required="si"/>
                         </li>                                                                                                
                         <li><label for="">*Password</label>
-                            <input class="itext" type="text" name="password" maxlength="50" required="si"/>
+                            <input class="itext" type="password" name="password" maxlength="50" required="si"/>
                         </li>                        
                         <li><label for="">*Rol</label><select class="iselect" name="rol" id="sexo">
                                 <option>Secretaria</option>
