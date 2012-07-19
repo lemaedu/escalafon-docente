@@ -13,7 +13,7 @@
             $passwd = '12345';
             $db = 'db_escalafon';
             $port = 5432;
-            $host = 'localhost';
+            $host = '192.168.1.2';
             $strCnx = "host=$host port=$port dbname=$db user=$user password=$passwd";
             $cnx = pg_connect($strCnx) or die ("Error de conexion. ". pg_last_error());
             try

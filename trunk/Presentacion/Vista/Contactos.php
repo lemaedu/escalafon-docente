@@ -44,13 +44,13 @@
             //$mensaje = $_POST['mensaje'];
             $mensaje = "Mensaje del formulario de contacto de escalafon.espoch.edu.com";
             $mensaje.= "\nNombre: " . $_POST['nombre'];
-            $mensaje.= "\nEmail: " . $_POST['email'];
+            $mensaje.= "\nEmail: " . $_POST['mail'];
             $mensaje.= "\nTelefono: " . $_POST['telefono'];
             $mensaje.= "\nMensaje: \n" . $_POST['mensaje'];
             $destino = "joselugb@gmail.com";
-            $remitente = $_POST['email'];
+            $remitente = $_POST['mail'];
             $asunto = "Mensaje enviado por: " . $_POST['nombre'];
-            mail($destino, $asunto, $mensaje, "FROM:".$remitente);
+            //mail($destino, $asunto, $mensaje, "FROM:".$remitente);
 
             //if ($op != 0) {
                 //echo " <script type=\"text/javascript\">alert(\"Enviado correctamente\")</script>";

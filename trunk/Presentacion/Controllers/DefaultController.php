@@ -82,6 +82,10 @@ class DefaultController {
                 break;
             case "Logout":$this->ShowLogout();
                 break;
+            case "Contactos":$this->ShowContactos();
+                break;
+            case "Acercade":$this->ShowAcercade();
+                break;
             default:$this->default1();
                 break;
         }
@@ -142,6 +146,12 @@ class DefaultController {
 
     public function ShowLogout() {
         require_once 'Presentacion/Vista/Logout.php';
+    }
+    public function ShowContactos() {
+        require_once 'Presentacion/Vista/Contactos.php';
+    }
+    public function ShowAcercade() {
+        require_once 'Presentacion/Vista/Acercade.php';
     }
 
 //    FUNCION PARA MOSTRAR LA PAGINA POE DEFECTO
