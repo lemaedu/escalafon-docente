@@ -59,13 +59,13 @@ class DataAccesComponents {
             $puntos = $capacitacion->getPuntos();
             $fecha = $capacitacion->getFecha();
             $descripcion = $capacitacion->getDescripcion();
-            
+
             $link = Conectarse();
 
             $Sql = "select sp_ingresarCapacitacion('$cedula','$institucionCap','$temaCapacitacion','$tipo',
             '$numeroHoras','$numeroDias','$puntos','$fecha','$descripcion')";
             $result = pg_query($link, $Sql);
-            
+
             return $result;
         } catch (Exception $ex) {
             echo "No se pudo pudieron ingresar los datos Error" . $ex->getMessage();
@@ -184,16 +184,19 @@ class DataAccesComponents {
 
     public function agregarPublicacion(Publicaciones $publicaciones) {
         try {
-            $area = $publicaciones->getArea();
-            $editorial = $publicaciones->getEditorial();
-            $descripcion = $publicaciones->getDescripcion();
-            $tipo_publicacion = $publicaciones->getTipo_publicacion();
-            $numeropublicacion = $publicaciones->getNumeropublicacion();
-            $puntajeanio = $publicaciones->getPuntajeanio();
+            $codigoPublicacion=$publicaciones->getCodigoPublicacion();
+            $cedula=$publicaciones->getCedula();
+            $area=$publicaciones->getArea();
+            $tipo_publicacion=$publicaciones->getTipo_publicacion();
+            $editorial=$publicaciones->getEditorial();
+            $numeropublicacion=$publicaciones->getNumeropublicacion();
+            $puntajeanio=$publicaciones->getPuntajeanio();
+            $fechaPublicacion=$publicaciones->getFechaPublicacion();
+            $descripcion=$publicaciones->getDescripcion();
+            
             $link = conectarse();
-
-            $Sql = "SELECT sp_ingresarPublicacion('$area','$tipo_publicacion','$editorial','$numeropublicacion','$puntajeanio','$descripcion')";
-
+            
+            $Sql = "SELECT sp_ingresarPublicacion('$cedula','$area','$tipo_publicacion','$editorial','$numeropublicacion','$puntajeanio','$fechaPublicacion','$descripcion')";
             $result = pg_query($link, $Sql);
             return $result;
 

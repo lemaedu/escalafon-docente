@@ -113,6 +113,26 @@ end;
 
 
 
+CREATE OR REPLACE FUNCTION sp_ingresarPublicacion(varchar,varchar,varchar,varchar,int,float,date,varchar)
+returns void AS'
+BEGIN
+INSERT INTO publicaciones(
+            cedula, area, tipo_publicacion, editorial, 
+            numeropublicacion, puntajeanio, fechapublicacion, descripcion)
+    VALUES ($1,$2,$3,$4,$5,$6,$7,$8);
+end;
+ 'LANGUAGE 'plpgsql';
+
+
+
+
+
+
+
+
+
+
+
 
 
 
