@@ -49,7 +49,9 @@ class DefaultController {
                 break;
             case "ListarCapacitacion":$this->ShowListarCapacitacion();
                 break;
-            case "BuscarDocente_todo":$this->ShowIngresarFormacion();
+            case "IngresarFormacion":$this->ShowIngresarFormacion();
+                break;
+            case "BuscarDocente_todo":$this->ShowBuscarDocente_todo();
                 break;
             case "ListarFormacion":$this->ShowListarFormacion();
                 break;
@@ -58,8 +60,6 @@ class DefaultController {
             case "ListarActividad":$this->ShowListarActividad();
                 break;
             case "IngresarAscenso":$this->ShowIngresarAscenso();
-                break;
-            case "IngresarFormacion":$this->ShowIngresarFormacion();
                 break;
             case "ListarAscenso":$this->ShowListarAscenso();
                 break;
@@ -207,10 +207,15 @@ class DefaultController {
 
     public function ShowIngresarFormacion() {
         require_once 'encabezado.php';
+        require_once 'Presentacion/Vista/IngresarFormacion.php';
+        //require_once 'piedepagina.php';
+    }
+    public function ShowBuscarDocente_todo() {
+        require_once 'encabezado.php';
         require_once 'Presentacion/Vista/BuscarDocentes_todo.php';
         //require_once 'piedepagina.php';
     }
-
+    
     public function ShowListarFormacion() {
         $businessLogic = new BusinessLogic();
         $formacion = $businessLogic->getListarFormacion();
