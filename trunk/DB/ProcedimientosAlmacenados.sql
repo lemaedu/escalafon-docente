@@ -266,6 +266,27 @@ WHERE
   docente.cedula = docente_formacion.cedula AND
   formacion.codigoformacion = docente_formacion.codigoformacion;
 
+
+
+create or replace view v_DocenteFormacion
+as
+SELECT 
+  docente_formacion.cedula,
+  formacion.niveleducacion, 
+  formacion.codigorefrendacion, 
+  formacion.numpaginaregistro, 
+  formacion.puntos, 
+  formacion.fecharegistro, 
+  formacion.descripcion 
+FROM 
+  public.docente, 
+  public.formacion, 
+  public.docente_formacion
+WHERE 
+  docente.cedula = docente_formacion.cedula AND
+  formacion.codigoformacion = docente_formacion.codigoformacion and docente.cedula='1';
+
+
 ------------Une dos tablas en una sola Columna--------------------
 --Select nombres || ' ' || apellidos as Nombres
 --    From docente;
